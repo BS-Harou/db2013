@@ -1,0 +1,376 @@
+@font-face {
+	src: url('../images/Stela_UT.otf');
+	font-family: 'Stela';
+}
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body, html {
+	height: 100%;
+	width: 100%;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+#move {
+	position: relative;
+	top: 25vh;
+	left: 58%;
+	width: 20rem;
+	display: inline-block;
+}
+h1 {
+	display: block;
+	margin: 0;
+	font-weight: normal;
+	font-size: 5rem;
+	font-family: 'Stela';
+	color: #111;
+}
+h2 {
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 2rem;
+	margin: 0;
+	padding: 3rem 0;
+}
+body {
+	margin: 0;
+	overflow-y: scroll;
+}
+header {
+	background:
+		url('../images/kanon_bg.png') no-repeat,
+		url('../images/shattered.png') repeat;
+
+	background-size: 70vh, auto;
+	background-position: left 30% bottom -10vh;
+	position: relative;
+}
+
+.center {
+	max-width: 82rem;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+
+#vyhledavat .center {
+	max-width: 100% !important;
+}
+
+article {
+	padding: 1rem 0 3rem 0;
+	text-align: center;
+}
+
+header, article, header .center {
+	height: 100%;
+	min-height: 35rem;
+	max-height: 150rem;
+}
+
+nav {
+	position: absolute;
+	top: auto;
+	right: 30px;
+	bottom: 10px;
+	text-align: right;
+}
+nav a {
+	font-family: 'Stela';
+	font-weight: bold;
+	font-size: 1.1rem;
+	text-align: center;
+	padding: 1rem 1rem;
+	display: inline-block;
+	color: #666;
+	text-decoration: none;
+}
+nav a:hover {
+	text-decoration: underline;
+}		
+
+#move a {
+	background: #111;
+	color: white;
+	display: inline-block;
+	text-decoration: none;
+	padding: 0.3rem 0.7rem;
+}
+#move a:hover {
+	background: #fafafa;
+	color: #000;
+}
+
+#login {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+#signup {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.column {
+	width: 25%;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 1.5rem;
+	white-space: normal;
+}
+.column p {
+	color: #444;
+	font-size: 0.85rem;
+	line-height: 1.5;
+}
+.circle {
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+}
+.column:nth-of-type(1) .circle {
+	background: url('../images/person.png') no-repeat center center;
+}
+.column:nth-of-type(2) .circle {
+	background: url('../images/hearth.png') no-repeat center center;
+}
+.column:nth-of-type(3) .circle {
+	background: url('../images/work.png') no-repeat center center;
+}
+.column:nth-of-type(4) .circle {
+	background: url('../images/mail.png') no-repeat center center;
+}
+#onas {
+	background: url('../images/brillant.png') repeat;
+	white-space: nowrap;
+}
+#vyhledavat {
+	background: url('../images/stressed_linen.png');
+	color: #f8f8f8;
+}
+.clear {
+	clear: both;
+}
+
+input[type=search] {
+	font-size: 1.1rem;
+	font-weight: normal;
+	padding: 0.3rem 0.8rem;
+	margin: 0 auto;
+	display: block;			
+	border: none;
+	width: 100%;
+	max-width: 40rem;
+}
+button {
+	margin: 2rem;
+	display: inline-block;
+	width: 15rem;
+	font-size: 1.1rem;
+	padding: 1rem 3rem;
+}
+
+footer {
+	padding: 2rem 0;
+	background: #ccc;
+	white-space: nowrap;
+	text-align: center;
+}
+
+footer .center {
+	width: 60rem;
+}
+
+footer .column {
+	text-align: left;
+	text-shadow: 1px 1px white;
+}
+
+footer ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+footer li {
+	margin: 0;
+	padding: 0;
+	line-height: 1.2rem;
+	font-size: 0.81rem;
+	text-shadow: #fff 0 1px 0;
+
+}
+
+footer strong {
+	font-size: 0.875rem;
+}
+
+footer a {
+	color: #111;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer p {
+	padding-top: 1rem;
+	font-size: 0.8rem;
+	color: #666;
+}
+
+#inner {
+	width: 400px;
+	margin-left: -200px;
+}
+
+#wrap input[type=text],#wrap input[type=password] {
+	display: block;
+	width: 100%;
+	border: 1px solid #afafaf;
+	padding: 0.2rem 0.5rem;
+}
+
+input[type=submit], input[type=button], button {
+	border: 1px solid rgba(0,0,0,.4);
+	border-radius: 0 1px 1px 0;
+	box-shadow: inset -10px -15px 30px rgba(0,0,0,.1),inset 1px 1px 1px rgba(256,256,256,.5),2px 2px 4px rgba(0,0,0,.2);
+	text-shadow: 0 1px 1px rgba(50,50,50,.3);
+	transition: background-color linear .1s;
+	background-color: #00a700;
+	color: #fff;
+	-webkit-user-select: none;
+	padding: 8px 24px;
+	font-size: 1rem;
+	line-height: 1.24;
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	margin: 0;
+}
+
+button {
+	display: block;
+	position: relative;
+	top: 2rem;
+	margin: 0 auto;
+	padding: 1rem 1.5rem;
+	font-size: 1.3rem;
+}
+
+#wrap input[type=submit]:hover {
+	background-color: #17af17;
+}
+
+#button-cancel {
+	margin-right: 0.5rem !important;
+	background-color: #cc0f16 !important;
+}
+
+#button-cancel:hover {
+	background-color: #fc0018 !important;
+}
+
+#signup-buttons {
+	padding-top: 2rem;
+	text-align: center;
+}
+
+#wrap label {
+	font-size: 0.9rem;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 1rem;
+}
+
+
+#vyhledavat {
+	position: relative;
+	min-height: 40rem;
+}
+
+#vyhledavat .center {
+	position: absolute;
+	top: 50%;
+	height: 40rem;
+	margin-top: -10rem;
+	width: 100%;
+}
+/*#vyhledavat strong {
+	display: block;
+	position: left;
+	font-size: 0.9rem;
+	position: relative;
+	top: 4rem;
+}
+
+#popular-results {
+	margin-top: 4rem;
+}
+.popular-item {
+	width: 8rem;
+	height: 8rem;
+	background: url('http://upload.wikimedia.org/wikipedia/en/5/53/Vanessa_Mae_-_Choreography_(Front).jpg') no-repeat center center #111;
+	background-size: 100%;
+	position: relative;
+	cursor: pointer;
+	box-shadow: 0px 0px 3px 1px rgba(0,0,0,1);
+	margin: 1.5rem;
+	margin-bottom: 1rem;
+	display: inline-block;
+}
+
+.popular-desc {
+	-webkit-user-select: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 2.5rem;
+	padding: 0.37rem;
+	overflow: hidden;
+	display: none;
+	background: rgba(0,0,0,0.6);
+	color: #f0f0f0;
+	font-size: 0.75rem;
+}
+
+.popular-item:hover .popular-desc {
+	display: block;
+}*/
+
+
+
+@media (max-height: 35rem) {
+	header {
+		background-size: 25rem, auto;
+		background-position: left 30% bottom -5rem;
+	}
+}
+@media (max-width: 50rem) {
+	header {
+		background:	url('../images/shattered.png') repeat;
+		background-size: auto !important;
+		background-position: 0 0  !important;
+	}
+	#move {
+		padding-top: 3rem  !important;
+		display: block  !important;
+		position: static  !important;
+		margin: 0 auto  !important;
+		text-align: center !important;
+	}
+	nav {
+		position: static  !important;
+		margin: 0 auto  !important;
+		display: block  !important;
+		width: 20rem  !important;
+		text-align: center !important;
+	}
+	header, article, header .center {
+		height: auto;
+		min-height: inherit;
+	}
+	.column {
+		margin-bottom: 3rem;
+		display: block;
+		width: 100%;
+	}
+}

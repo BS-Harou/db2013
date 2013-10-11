@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Databáze skupin 2013</title>
+	<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" />-->
+	<link rel="stylesheet" type="text/css" href="styles/global.css">
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
+
+	<script src="scripts/global.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', init);
+
+		function $(q) { return document.querySelector(q); }
+		function $$(q) { 
+			var data = document.querySelectorAll(q);
+			return Array.prototype.splice.call(data, 0);
+		}
+
+		function init() {
+			$('#signup').addEventListener('click', function() {
+				$('#wrap').classList.add('visible');
+			});
+
+			$('#button-cancel').addEventListener('click', function() {
+				$('#wrap').classList.remove('visible');
+				$$('#wrap input[type=text], #wrap input[type=password]').forEach(function(input) {
+					input.value = '';
+				});
+				$$('#wrap input[type=checkbox]').forEach(function(input) {
+					input.checked = false;
+				});
+			});
+
+			$('#button-search').addEventListener('click', function() {
+				location.href = 'wall.html';
+			});
+
+			clonePopulars();
+		}
+
+		function clonePopulars() {
+			/*var proto = $('.popular-item');
+			var newEle;
+			for (var i=1; i<14; i++) {
+				newEle = proto.cloneNode();
+				newEle.style.backgroundImage = 'url("' + pics[i % pics.length] + '")';
+				$('#popular-results').appendChild(newEle);
+			}*/
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div id="move">
+			<h1>Databáze skupin 2013</h1>
+			<a href="wall.html" id="login">Přihlásit se</a>
+			<a href="#" id="signup">Registrovat se</a>
+		</div>
+
+		<nav>
+			<a href="#vyhledavat">Vyhledávní</a>
+			<a href="#onas">O nás</a>
+			<a href="#zapati">Zápatí</a>
+		</nav>
+	
+	</header>
+
+
+	<article id="vyhledavat">
+		<div class="center">
+			<h2>Vyhledávání</h2>
+			<input type="search" placeholder="Zadejte název kapely, alba, či jiné klíčové slova" />
+			<button id="button-search">Hledej</button>
+
+			<!--<strong>Popular results</strong>
+			<div id="popular-results">
+				<div class="popular-item">
+					<div class="popular-desc">
+						Lorem ipsum dolor sit amet
+					</div>
+				</div>
+			</div>-->
+		</center>
+	</article>
+
+	<article id="onas">
+		<div class="center">
+			<h2>O nás</h2>
+			<div class="column">
+				<div class="circle">
+				</div>
+				<h3>Kdo jsme</h3>
+				<p>Jsme studenti ČVUT na fakultě informatiky. Stránka slouží jako protoyp pro semestrální projekt na předmět "Softwarové inženýrství I". Cílem předmětu je naučit studenty práci v týmu a tvorbu UML modelů.</p>
+			</div>
+
+			<div class="column">
+				<div class="circle">
+				</div>
+				<h3>Projekt</h3>
+				<p><em>Databáze skupin 2013</em> je stránka, která by měla poskytovat informace - alba, hudebníci, atd. - o hudebních skupinách z celého světa a zároveň umožnit uživatelům v těchto datech jednoduše vyhledávat a řadit výsledky.</p>
+			</div>
+
+			<div class="column">
+				<div class="circle">
+				</div>
+				<h3>Další součásti projektu</h3>
+				<p>Tento prototyp není jedinou součástí semestrální práce. Vypracovali jsme také několik další součastí. Především <a href="/model">UML model</a>, <a href="/databaze">databázi</a> a <a href="/wiki">wiki</a> stránku obsahující další informace.</p>
+			</div>
+
+			<div class="column">
+				<div class="circle">
+				</div>
+				<h3>Kontakt</h3>
+				<p>V týmu je nás celkem pět. Martin Holec ochotně souhlasil s pozicí vedoucího a můžete ho kontaktovat na adrese xyzw[at]	xyzw.cz</p>
+			</div>
+		</div>
+	</article>
+
+
+	<footer id="zapati">
+		<div class="center">
+			<hr />
+			<br />
+			<div class="column">
+				<strong>Společnost</strong>
+				<ul>
+					<li><a href="#">O nás</a></li>
+					<li><a href="#">Kontakt</a></li>
+					<li><a href="#">Práce</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Reklama</a></li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<strong>Přidejte se</strong>
+				<ul>
+					<li><a href="#">Registrace</a></li>
+					<li><a href="#">Uživatelée</a></li>
+					<li><a href="#">Vyhledávání</a></li>
+					<li><a href="#">Komunita</a></li>
+					<li><a href="#">Fóra</a></li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<strong>Další</strong>
+				<ul>
+					<li><a href="#">Aplikace a zařízení</a></li>
+					<li><a href="#">Developer API</a></li>
+					<li><a href="#">Nástroje</a></li>
+					<li><a href="#">Nastavení</a></li>
+					<li><a href="#">Hudba</a></li>
+				</ul>
+			</div>
+
+			<div class="column">
+				<strong>Nápověda</strong>
+				<ul>
+					<li><a href="#">Podpora</a></li>
+					<li><a href="#">Stav systému</a></li>
+				</ul>
+			</div>
+			<br /><br />
+			<hr />
+		</div>
+		<p>(c) copyright 2013, pro BI-SI1.2 MK, MH, ZJ, KS, JS</p>
+	</footer>
+
+	<div id="wrap">
+		<div id="inner">
+			<strong>Registrace</strong>
+			<form>
+				<label>
+					Přezdívka
+					<input type="text" name="nick" required pattern="\w{5,30}" />
+				</label>
+
+				<label>
+					Heslo
+					<input type="password" name="pass" required pattern="\S{5,}" />
+				</label>
+
+				<label>
+					Heslo znovu
+					<input type="password" name="pass2" required pattern="\S{5,}" />
+				</label>
+
+				<label>
+					E-Mail
+					<input type="text" name="mail" required pattern="\S+@\S+\.\S+" />
+				</label>
+
+				<label>
+					<input type="checkbox" /> Souhlasím s našimi <a href="/podminky.html">podmínkami</a>.
+				</label>
+
+				<div id="signup-buttons">
+					<input type="button" id="button-cancel" value="Zrušit" />
+					<input type="submit" id="button-signup" value="Registrovat se" />
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

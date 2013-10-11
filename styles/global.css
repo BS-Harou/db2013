@@ -1,0 +1,36 @@
+#wrap {
+	background: rgba(0,0,0,0.7);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: none;
+	z-index: 3;
+}
+#inner {
+	border-radius: 6px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	background: white;
+	width: 800px;
+	height: 480px;
+	margin-left: -400px;
+	margin-top: -240px;
+	padding: 2rem;
+	overflow: hidden;
+}
+#inner > strong {
+	display: block;
+	font-size: 1.5rem;
+	color: #111;
+	padding-bottom: 1rem;
+}
+.visible {
+	display: block !important;
+}
+
+.clear {
+	clear: both;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>DB2013 - administrace</title>
+	<link rel="stylesheet" type="text/css" href="styles/global.css" />
+	<link rel="stylesheet" type="text/css" href="styles/admin.css" />
+	
+</head>
+<body>
+	<header>
+			<input type="search" placeholder="Zadejte název skupiny, alba či jiné klíčové slovo" /><input id="button-search" type="button" value="&nbsp;" />
+	</header>
+
+	<main>
+		Loading...
+	</main>
+
+	<script type="text/template" id="template-item">
+		<div class="list-item">
+			<div class="item-name">Lorem ipsum</div>
+			<div class="item-edit">Edit</div>
+			<div class="item-delete">Delete</div>
+		</div>
+	</script>
+
+	<script>
+	setTimeout(function() {
+		var tpl = document.querySelector('#template-item').textContent;
+		var main = document.querySelector('main');
+		main.innerHTML = '';
+
+		for (var i=0; i<100; i++) {
+			main.innerHTML += tpl;
+		}
+	}, 0);
+
+	document.addEventListener('click', function(e) {
+		if (e.target.classList.contains('item-delete')) {
+			confirm('Určitě chete odstranit tuto položku?');
+		}
+	});
+	
+	
+	</script>
+</body>
+</html>
