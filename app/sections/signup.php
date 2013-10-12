@@ -38,7 +38,7 @@ if ($conditions != 'on') {
 
 $user = new User();
 $user->set('nick', $nick);
-$user->set('pass', md5($nick));
+$user->set('pass', md5($pass1));
 $user->set('email', $email);
 $user->save();
 

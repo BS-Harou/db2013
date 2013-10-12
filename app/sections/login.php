@@ -11,7 +11,7 @@ function login($nick, $pass) {
 	$users = new Users(array(
 		'where' => array(
 			'nick' => $nick,
-			'pass' => $pass
+			'pass' => md5($pass)
 		),
 		'limit' => 1
 	));
