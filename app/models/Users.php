@@ -1,6 +1,7 @@
 <?php
 
 class User extends LapiModel {
+	public $idAttribute = 'nick';
 	public $defaults = array(
 		'id'    =>  NULL,
 		'nick'  => NULL,

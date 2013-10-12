@@ -36,6 +36,19 @@ if ($conditions != 'on') {
 	exit;
 }
 
+// USER EXISTS?
+$users = new Users(array(
+	'where' => array(
+		'nick' => $nick
+	),
+	'limit' => 1
+));
+
+if ($users->length()) {
+	echo '{ "error": "Přezdívku již používá jiný uživatel." }';
+	exit;
+}
+
 $user = new User();
 $user->set('nick', $nick);
 $user->set('pass', md5($pass1));
