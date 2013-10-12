@@ -38,3 +38,15 @@ genres.getRandom = function() {
 function random(min, max) {
 	return min + Math.floor(Math.random() * (max-min) );
 }
+
+function $(q) { return document.querySelector(q); }
+function $$(q) { 
+	var data = document.querySelectorAll(q);
+	return Array.prototype.splice.call(data, 0);
+}
+
+function template(tpl, obj) {
+	return tpl.replace(/\{\{([^}]+)\}\}/gm, function(all, f) {
+		return obj[f] || '';
+	});
+}

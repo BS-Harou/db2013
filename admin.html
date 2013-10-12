@@ -5,14 +5,49 @@
 	<title>DB2013 - administrace</title>
 	<link rel="stylesheet" type="text/css" href="styles/global.css" />
 	<link rel="stylesheet" type="text/css" href="styles/admin.css" />
-	
+	<script src="scripts/global.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', init);
+
+		function init() {
+			var addTpl = $('#template-add-band').textContent;
+
+			$('#button-add').addEventListener('click', function() {
+				$('main').innerHTML = addTpl;
+			});
+
+			$('#button-remove-all').addEventListener('click', function() {
+				var c = confirm('Určite odstranit vše?');
+				if (!c) return;
+
+				// xhr.open('get', '/api/bands/remove-all', true);
+			});
+
+			setTimeout(function() {
+				var tpl = document.querySelector('#template-item').textContent;
+				var main = document.querySelector('main');
+				main.innerHTML = '';
+
+				for (var i=0; i<100; i++) {
+					main.innerHTML += tpl;
+				}
+			}, 0);
+
+			document.addEventListener('click', function(e) {
+				if (e.target.classList.contains('item-delete')) {
+					confirm('Určitě chete odstranit tuto položku?');
+				}
+			});
+		}
+	</script>
 </head>
 <body>
 	<nav>
 		<div class="center">
+			<a href="wall.html">Zeď</a>
 			<a href="">Hudba</a>
 			<a href="">Hudebníci</a>
-			<a href="">Žánry</a>
 			<a href="">Vydavatelství</a>
 			<a href="">Uživatelé</a>
 		</div>
@@ -22,8 +57,8 @@
 	</header>
 
 	<div class="center" id="buttons">
-		<div class="button">Přidat</div>
-		<div class="button">Odstranit vše</div>
+		<div class="button" id="button-add">Přidat</div>
+		<div class="button" id="button-remove-all">Odstranit vše</div>
 	</div>
 
 	<main>
@@ -38,24 +73,10 @@
 		</div>
 	</script>
 
-	<script>
-	setTimeout(function() {
-		var tpl = document.querySelector('#template-item').textContent;
-		var main = document.querySelector('main');
-		main.innerHTML = '';
-
-		for (var i=0; i<100; i++) {
-			main.innerHTML += tpl;
-		}
-	}, 0);
-
-	document.addEventListener('click', function(e) {
-		if (e.target.classList.contains('item-delete')) {
-			confirm('Určitě chete odstranit tuto položku?');
-		}
-	});
-	
-	
+	<script type="text/template" id="template-add-band">
+		Add band
+		<div class="button">Cancel</div>
 	</script>
+
 </body>
 </html>

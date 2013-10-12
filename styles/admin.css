@@ -31,7 +31,7 @@ nav {
 }
 
 nav a {
-	display: inline-box;
+	display: inline-block;
 	color: #f0f0f0;
 	text-decoration: none;
 	font-size: 0.9rem;
@@ -133,7 +133,7 @@ input[type=button]:hover {
 }
 
 #buttons .button:hover {
-	background-color: #ededed;
+	background-color: #fff;
 	border-color: #c6c6c6;
 }
 

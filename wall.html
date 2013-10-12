@@ -11,16 +11,6 @@
 		var tpl;
 		var lorem;
 
-		function template(tpl, obj) {
-			return tpl.replace(/\{\{([^}]+)\}\}/gm, function(all, f) {
-				return obj[f] || '';
-			});
-		}
-
-		function $(q) {
-			return document.querySelector(q);
-		}
-
 		function init() {
 			tpl = $('#template-item').innerHTML;
 			lorem = $('#template-lorem').innerHTML;
