@@ -1,0 +1,263 @@
+
+<!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/2.1.0/normalize.min.css" />-->
+<link rel="stylesheet" type="text/css" href="{{DIR_STATIC}}/styles/index.css">
+<script>
+	document.addEventListener('DOMContentLoaded', init);
+
+	function showInner(tplid) {
+		$('#inner').innerHTML = $('#' + tplid).textContent;
+		$('#wrap').classList.remove('invisible');
+		$('#wrap input').focus();
+	}
+
+	function init() {
+		$('#signup').addEventListener('click', function() {
+			showInner('template-signup');
+		});
+
+		$('#login').addEventListener('click', function() {
+			if (this.href) return;
+			showInner('template-login');
+		});
+
+		document.addEventListener('click', function(e) {
+			if (e.target.id != 'button-cancel') return;
+
+			$('#wrap').classList.add('invisible');
+			$$('#wrap input[type=text], #wrap input[type=password]').forEach(function(input) {
+				input.value = '';
+			});
+			$$('#wrap input[type=checkbox]').forEach(function(input) {
+				input.checked = false;
+			});
+		});
+
+		$('#button-search').addEventListener('click', function() {
+			location.href = 'wall.html';
+		});
+	}
+
+	function saveParse(str) {
+		try {
+			return JSON.parse(str);
+		} catch(e) {
+			return null;
+		}
+	}
+
+	function handleSignup(that) {
+		//e.preventDefault();
+		var xhr = new XMLHttpRequest();
+		xhr.open('post', './signup', true);
+		xhr.responseType = 'text';
+		xhr.onload = function(e) {
+			var data = saveParse(this.response) || {};
+			if (data.success) {
+				showInner('template-login');
+				$('#wrap .form-msg').innerHTML = 'Registrace byla úspěšná. Potvrďte ji prosím kliknutím na odkaz ve vašem e-mailu.';
+			} else {
+				that.querySelector('.form-values').classList.remove('invisible');
+				$('#wrap .form-msg').innerHTML = 'Chyba: ' + data.error;
+			}
+		};
+		xhr.onerror = function() {
+			$('#wrap .form-msg').innerHTML = 'Chyba spojení.';
+		};
+		xhr.send(new FormData(that));
+
+		that.querySelector('.form-values').classList.add('invisible');
+		that.querySelector('.form-msg').innerHTML = 'Probíhá registrace. Čekejte prosím.';
+	}
+
+	
+</script>
+
+<header>
+	<div id="move">
+		<h1>Databáze skupin 2013</h1>
+		{{#IS_LOGGED}}
+			<a href="./wall" id="login">Přihlásit se</a>
+		{{/IS_LOGGED}}
+		{{^IS_LOGGED}}
+			<a id="login">Přihlásit se</a>
+		{{/IS_LOGGED}}
+		<a href="javascript:void(0)" id="signup">Registrovat se</a>
+	</div>
+
+	<nav>
+		<a href="#vyhledavat">Vyhledávní</a>
+		<a href="#onas">O nás</a>
+		<a href="#zapati">Zápatí</a>
+	</nav>
+
+</header>
+
+
+<article id="vyhledavat">
+	<div class="center">
+		<h2>Vyhledávání</h2>
+		<input type="search" placeholder="Zadejte název kapely, alba, či jiné klíčové slova" />
+		<button id="button-search">Hledej</button>
+
+		<!--<strong>Popular results</strong>
+		<div id="popular-results">
+			<div class="popular-item">
+				<div class="popular-desc">
+					Lorem ipsum dolor sit amet
+				</div>
+			</div>
+		</div>-->
+	</center>
+</article>
+
+<article id="onas">
+	<div class="center">
+		<h2>O nás</h2>
+		<div class="column">
+			<div class="circle">
+			</div>
+			<h3>Kdo jsme</h3>
+			<p>Jsme studenti ČVUT na fakultě informatiky. Stránka slouží jako protoyp pro semestrální projekt na předmět "Softwarové inženýrství I". Cílem předmětu je naučit studenty práci v týmu a tvorbu UML modelů.</p>
+		</div>
+
+		<div class="column">
+			<div class="circle">
+			</div>
+			<h3>Projekt</h3>
+			<p><em>Databáze skupin 2013</em> je stránka, která by měla poskytovat informace - alba, hudebníci, atd. - o hudebních skupinách z celého světa a zároveň umožnit uživatelům v těchto datech jednoduše vyhledávat a řadit výsledky.</p>
+		</div>
+
+		<div class="column">
+			<div class="circle">
+			</div>
+			<h3>Další součásti projektu</h3>
+			<p>Tento prototyp není jedinou součástí semestrální práce. Vypracovali jsme také několik další součastí. Především <a href="/model">UML model</a>, <a href="/databaze">databázi</a> a <a href="/wiki">wiki</a> stránku obsahující další informace.</p>
+		</div>
+
+		<div class="column">
+			<div class="circle">
+			</div>
+			<h3>Kontakt</h3>
+			<p>V týmu je nás celkem pět. Martin Holec ochotně souhlasil s pozicí vedoucího a můžete ho kontaktovat na adrese xyzw[at]	xyzw.cz</p>
+		</div>
+	</div>
+</article>
+
+
+<footer id="zapati">
+	<div class="center">
+		<hr />
+		<br />
+		<div class="column">
+			<strong>Společnost</strong>
+			<ul>
+				<li><a href="javascript:void(0)">O nás</a></li>
+				<li><a href="javascript:void(0)">Kontakt</a></li>
+				<li><a href="javascript:void(0)">Práce</a></li>
+				<li><a href="javascript:void(0)">Blog</a></li>
+				<li><a href="javascript:void(0)">Reklama</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+			<strong>Přidejte se</strong>
+			<ul>
+				<li><a href="javascript:void(0)">Registrace</a></li>
+				<li><a href="javascript:void(0)">Uživatelée</a></li>
+				<li><a href="javascript:void(0)">Vyhledávání</a></li>
+				<li><a href="javascript:void(0)">Komunita</a></li>
+				<li><a href="javascript:void(0)">Fóra</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+			<strong>Další</strong>
+			<ul>
+				<li><a href="javascript:void(0)">Aplikace a zařízení</a></li>
+				<li><a href="javascript:void(0)">Developer API</a></li>
+				<li><a href="javascript:void(0)">Nástroje</a></li>
+				<li><a href="javascript:void(0)">Nastavení</a></li>
+				<li><a href="javascript:void(0)">Hudba</a></li>
+			</ul>
+		</div>
+
+		<div class="column">
+			<strong>Nápověda</strong>
+			<ul>
+				<li><a href="javascript:void(0)">Podpora</a></li>
+				<li><a href="javascript:void(0)">Stav systému</a></li>
+			</ul>
+		</div>
+		<br /><br />
+		<hr />
+	</div>
+	<p>(c) copyright 2013, pro BI-SI1.2 MK, MH, ZJ, KS, JS</p>
+</footer>
+
+<div id="wrap" class="invisible">
+	<div id="inner">
+		
+	</div>
+</div>
+
+<script type="template" id="template-signup">
+	<strong>Registrace</strong>
+	<form action="./signup" method="post" onsubmit="handleSignup(this); return false;">
+		<div class="form-msg"></div>
+		<div class="form-values">
+			<label>
+				Přezdívka
+				<input type="text" name="nick" required pattern="\w{3,30}" />
+			</label>
+
+			<label>
+				Heslo
+				<input type="password" name="pass1" required pattern="\S{5,}" />
+			</label>
+
+			<label>
+				Heslo znovu
+				<input type="password" name="pass2" required pattern="\S{5,}" />
+			</label>
+
+			<label>
+				E-Mail
+				<input type="text" name="email" required pattern="\S+@\S+\.\S+" />
+			</label>
+
+			<label>
+				<input type="checkbox" name="conditions" /> Souhlasím s našimi <a href="/podminky">podmínkami</a>.
+			</label>
+		
+
+			<div id="signup-buttons">
+				<input type="button" id="button-cancel" value="Zrušit" />
+				<input type="submit" id="button-signup" value="Registrovat se" />
+			</div>
+
+		</div>
+	</form>
+</script>
+
+<script type="template" id="template-login">
+	<strong>Přihlášení</strong>
+	<form action="./login" method="post">
+		<div class="form-msg"></div>
+		<div class="form-values">
+			<label>
+				Přezdívka
+				<input type="text" name="nick" required pattern="\w{3,30}" />
+			</label>
+
+			<label>
+				Heslo
+				<input type="password" name="pass" required pattern="\S{5,}" />
+			</label>
+
+			<div id="signup-buttons">
+				<input type="button" id="button-cancel" value="Zrušit" />
+				<input type="submit" id="button-login" value="Přihlásit se" />
+			</div>
+		</div>
+	</form>
+</script>

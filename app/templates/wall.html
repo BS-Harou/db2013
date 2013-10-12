@@ -1,0 +1,168 @@
+<link rel="stylesheet" type="text/css" href="{{DIR_STATIC}}/styles/wall.css">
+<script>
+	document.addEventListener('DOMContentLoaded', init);
+	var tpl;
+	var lorem;
+
+	function init() {
+		tpl = $('#template-item').innerHTML;
+		lorem = $('#template-lorem').innerHTML;
+		for (var i=0; i<60; i++) {
+			addOne(i);
+		}
+
+		$('#button-filters').addEventListener('click', function() {
+			$('#filters').classList.toggle('visible');
+		});
+
+		$('main').addEventListener('click', function(e) {
+			$('#filters').classList.remove('visible');
+
+			if (e.target.classList.contains('item-img')) {
+				showItem(e.target);
+			}
+		});
+
+		$('#wrap').addEventListener('click', function(e) {
+			if (this == e.target) {
+				this.classList.add('invisible');
+			}
+		});
+
+		$('#user').addEventListener('click', function(e) {
+			var pos = $('#user').getBoundingClientRect();
+			
+			$('#context-menu').classList.toggle('visible');
+			$('#context-menu').style.left = pos.left - $('#context-menu').offsetWidth/2 + pos.width/2 + 'px';
+			setTimeout(function() {
+				$('#context-menu').classList.toggle('move');
+			}, 0);
+		});
+	}
+
+	function showItem(t) {
+		$('#wrap').classList.remove('invisible');
+	}
+
+	function addOne(i) {
+		var tmp = document.createElement('div');
+		tmp.className = 'wall-item';
+		tmp.innerHTML = template(tpl, {
+			name: 'Lorem Ipsum',
+			genre: genres.getRandom(),
+			rating: random(1,5) + '.' + random(1,10) + '/5',
+			img: pics[i % pics.length],
+			desc: lorem.substr(1, random(40, lorem.length))
+		});
+		$('main').appendChild(tmp);
+	}
+
+
+
+</script>
+
+<header>
+	<div class="center">
+		<a id="logo" href="./main">
+			db<br>
+			2013
+		</a>
+		<input type="search" placeholder="Zadejte název skupiny, alba či jiné klíčové slovo" /><input id="button-search" type="button" value="&nbsp;" />
+		<input type="button" id="button-filters" value="Filtry" />
+		<div id="user"></div>
+
+
+		<div id="filters">
+			<table>
+				<tr>
+					<td>
+						<strong>Seřadit:</strong>
+						<a href="#">Nejnovější</a>
+						<a href="#">Nejoblíbenější</a>
+						<a href="#">Nejnavštěvovanější</a>
+						<a href="#">Nejstarší</a>
+					</td>
+					<td>
+						<strong>Pouze:</strong>
+						<a href="#">Skupiny</a>
+						<a href="#">Alba</a>
+						<a href="#">Písničky</a>
+					</td>
+					<td>
+						<strong>Obodbí:</strong>
+						<a href="#">2000-2013</a>
+						<a href="#">1990-1999</a>
+						<a href="#">1970-1989</a>
+						<a href="#">1960-1969</a>
+						<a href="#">starší než 1960</a>
+					</td>
+				</t>
+			</table>
+		</div>
+	</div>
+</header>
+<main>
+
+</main>
+
+<div id="wrap" class="invisible">
+	<div id="inner">
+		<strong>Lorem ipsum</strong>
+		<div class="column">
+			<img src="http://upload.wikimedia.org/wikipedia/en/5/53/Vanessa_Mae_-_Choreography_(Front).jpg" class="item-img" />
+			<!--<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at enim et elit feugiat aliquet ut sed lacus. Aenean faucibus odio et turpis hendrerit, sit amet egestas turpis dignissim.<br><a href="#">&gt; more...</a></p>-->
+			<p class="desc">
+				<div class="desc-item"><label>Působení: </label> 1991-dnes</div>
+				<div class="desc-item"><label>Žánr: </label> <a href="#">rock</a></div>
+				<div class="desc-item"><label>Web: </label> <a href="#">www.skupina.cz</a></div>
+				<div class="desc-item"><label>Vydavatelství: </label> <a href="#">Music S.R.O.</a></div>
+				<div class="desc-item"><label>Info: </label> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet...<br><a href="#">&gt; more...</a></div>
+			</p>
+		</div>
+		<div class="column">
+			<strong>Alba: </strong>
+			<a href="#"><span class="year">2013</span> Lorem ipsum</a>
+			<a href="#"><span class="year">2012</span> Lorem ipsum</a>
+			<a href="#"><span class="year">2010</span> Lorem ipsum</a>
+			<a href="#"><span class="year">2008</span> Lorem ipsum</a>
+			<a href="#"><span class="year">2007</span> Lorem ipsum</a>
+		</div>
+		<div class="column">
+			<strong>Členové kapely: </strong>
+			<a href="#">Lorem Ipsulovic</a>
+			<a href="#">Lorem Ipsulovic</a>
+			<a href="#">Lorem Ipsulovic</a>
+			<a href="#">Lorem Ipsulovic</a>
+			<a href="#">Lorem Ipsulovic</a>
+
+			<strong>Bývalý členové: </strong>
+			<a href="#">Lorem Ipsulovic</a>
+			<a href="#">Lorem Ipsulovic</a>
+		</div>
+		<div class="user-options">
+			<a href="#" class="user-option o-fav"></a>
+			<a href="#" class="user-option o-rate"></a>
+		</div>
+	</div>
+</div>
+
+<div id="context-menu">
+	<a href="#" class="context-item">Oblíbené</a>
+	<a href="#" class="context-item">Nastavení</a>
+	<a href="./admin" class="context-item">Administrace</a>
+	<a href="index.html" class="context-item">Odhlásit se</a>
+</div>
+
+<script type="template" id="template-item">
+	<img src="<%= img %>" class="item-img" />
+	<div class="first-line">
+		<p class="name"><%= name %></p><p class="rating"><%= rating %></p>
+		<div class="clear"></div>
+	</div>
+	<p class="genre"><%= genre %></p>
+	<p class="desc"><%= desc %></p>
+</script>
+
+<script type="template" id="template-lorem">
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin at enim et elit feugiat aliquet ut sed lacus. Aenean faucibus odio et turpis hendrerit, sit amet egestas turpis dignissim. Praesent dui augue, sollicitudin in neque eu, varius consequat leo. Donec eget erat eu risus tristique bibendum sed ac nunc. Duis eget orci adipiscing, rhoncus metus et, lacinia odio. Etiam in laoreet urna. Sed sodales ante in odio tempor posuere. Vivamus adipiscing sollicitudin diam at iaculis. Proin ipsum diam, pretium vitae dolor sit amet, auctor ornare eros. Donec molestie nisl vel massa lacinia, ut pulvinar ipsum tincidunt. 
+</script>

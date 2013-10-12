@@ -95,6 +95,7 @@ nav a:hover {
 	display: inline-block;
 	text-decoration: none;
 	padding: 0.3rem 0.7rem;
+	cursor: pointer;
 }
 #move a:hover {
 	background: #fafafa;
@@ -108,6 +109,12 @@ nav a:hover {
 #signup {
 	border-top-right-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+.form-msg {
+	font-size: 0.8rem;
+	color: blue;
+	padding-bottom: 0.5rem;
+	margin-top: -0.5rem;
 }
 .column {
 	width: 25%;
@@ -220,7 +227,8 @@ footer p {
 
 #inner {
 	width: 400px;
-	margin-left: -200px;
+	margin-top: 0 !important;
+	height: auto !important;
 }
 
 #wrap input[type=text],#wrap input[type=password] {
@@ -294,47 +302,6 @@ button {
 	margin-top: -10rem;
 	width: 100%;
 }
-/*#vyhledavat strong {
-	display: block;
-	position: left;
-	font-size: 0.9rem;
-	position: relative;
-	top: 4rem;
-}
-
-#popular-results {
-	margin-top: 4rem;
-}
-.popular-item {
-	width: 8rem;
-	height: 8rem;
-	background: url('http://upload.wikimedia.org/wikipedia/en/5/53/Vanessa_Mae_-_Choreography_(Front).jpg') no-repeat center center #111;
-	background-size: 100%;
-	position: relative;
-	cursor: pointer;
-	box-shadow: 0px 0px 3px 1px rgba(0,0,0,1);
-	margin: 1.5rem;
-	margin-bottom: 1rem;
-	display: inline-block;
-}
-
-.popular-desc {
-	-webkit-user-select: none;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 2.5rem;
-	padding: 0.37rem;
-	overflow: hidden;
-	display: none;
-	background: rgba(0,0,0,0.6);
-	color: #f0f0f0;
-	font-size: 0.75rem;
-}
-
-.popular-item:hover .popular-desc {
-	display: block;
-}*/
 
 
 

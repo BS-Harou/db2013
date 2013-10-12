@@ -46,7 +46,7 @@ function $$(q) {
 }
 
 function template(tpl, obj) {
-	return tpl.replace(/\{\{([^}]+)\}\}/gm, function(all, f) {
-		return obj[f] || '';
+	return tpl.replace(/\<%=([^}]+?)%\>/gm, function(all, f) {
+		return obj[(f || '').trim()] || '';
 	});
 }
