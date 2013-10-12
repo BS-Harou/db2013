@@ -57,7 +57,8 @@ if (isset($_POST['nick'])) {
 	if (login($_POST['nick'], $_POST['pass'])) {
 		$app->redirect( 'wall' );
 	} else {
-		$params->error_msg = 'Nepodařilo se přihlásit.';
+		$app->redirect('main');
+		//$params->error_msg = 'Nepodařilo se přihlásit.';
 	}
 }
 
