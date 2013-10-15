@@ -140,7 +140,7 @@ class LapiModel {
 	}
 
 	/**
-	 * Odstraní všechy atributy
+	 * Odstraní všechny atributy
 	 */
 	public function clear() {
 		$this->attributes = array();

@@ -9,7 +9,7 @@ function getNumber($str) {
 }
 
 /**
- * Odstraní z řetězce vše až čísla, psímena a znaky -_:
+ * Odstraní z řetězce vše až na čísla, psímena a znaky -_:
  */
 function stripString($str) {
 	return preg_replace('/[^a-zA-Z0-9\-_:]/', '', $str);	
