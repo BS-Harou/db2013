@@ -1,15 +1,60 @@
 <?php
 
-
-
+/**
+ * Třída reprezentující jeden řádek z databáze.
+ * Jednotlivé buňky se získavají/nastavují přes metody get a set. ($model->set('name', 'Jan Novak'))
+ * Aby se změny uložili do databáze je třeba zavolat metodu save ($model->save())
+ * Buňkám v modelu budeme říkat _atributy_
+ * @class LapiModel
+ */
 class LapiModel {
+	/**
+	 * Asociativní pole jednotlivých atributů. Všechny změny by se měli dělat pomocí metody set.
+	 * @type Array
+	 */
 	public $attributes = array();
+
+	/**
+	 * Název sloupce, který slouží jako PRIMARY KEY
+	 * @type String
+	 */
 	public $idAttribute = 'id';
+
+	/**
+	 * Výchozí hodnoty atributů, která se nastaví při vytvoření nového modelu.
+	 * @type Array
+	 */
 	public $defaults = array();
+
+	/**
+	 * Speciální ID které se nastaví ihned při vytvoření modelu bez toho aby byl model uložený do databáze.
+	 * @type String
+	 */
 	public $cid = '';
+
+	/**
+	 * Tuto proměnnou nastavuje metoda validate na chybovou hlášku, pokud není model validní
+	 * @type String
+	 */
 	public $validationError = '';
+
+	/**
+	 * Název tabulky ke které model patří
+	 * @type String
+	 * @example 'users'
+	 */
 	public $db_table;
+
+	/**
+	 * Speciální interní proměnná, která se používá k vygenerování cid
+	 */
 	public static $_idCounter = 0;
+
+	/**
+	 * Konstruktor
+	 * @param $data {Array} Asociativní pole dat, která se mají modelu nastavit
+	 * @example new LapiModel(array('name' => 'Jan Novak', 'age' => 13));
+	 */
 	public function __construct($data=NULL) {
 		if ($data != NULL) {
 			foreach ($data as $key => $value) {
@@ -24,10 +69,20 @@ class LapiModel {
 			$this->initialize();
 		}
 	}
+
+	/**
+	 * Statická metoda, která vygeneruje nové cid
+	 * @param $prefix {String} Normálně se generují hodnoty od 1 do n. Pefix umožňuje před číslo vložit nějaký řětezec (m1-mn)
+	 * @return String
+	 */
 	private static function uniqueId($prefix) {
 		$id = ++self::$_idCounter . '';
 		return $prefix ? $prefix . $id : $id;
 	}
+
+	/**
+	 * Pokud modelu chybí nějaký atribut, který je definovaný v defaults, tak se použije hodnota nastavená v defaults.
+	 */
 	public function fillDefaults() {
 		foreach ($this->defaults as $key => $value) {
 			if (!$this->has($key)) {
@@ -35,30 +90,86 @@ class LapiModel {
 			}
 		}
 	}
+
+	/**
+	 * Získá hodnotu atributu
+	 * @param $index {String} Název atributu (index asoc. pole atributů)
+	 * @example $model->get('name') => 'Jan Novak'
+	 * @return Any
+	 */
 	public function get($index) {
 		return $this->has($index) ? $this->attributes[$index] : NULL;
 	}
+
+	/**
+	 * Získá hodnotu atributu a převede všechny html tagy na řetězce
+	 * @param $index {String} Název atributu
+	 * @example $model->escape('popis') => '&lt;b&gt;tucny text&lt;/b&gt;'
+	 * @return String
+	 */
 	public function escape($index) {
 		return $this->has($index) ? htmlspecialchars($this->attributes[$index]) : NULL;
 	}
+
+	/**
+	 * Nastaví hodnotu atributu
+	 * @param $index {String} Název atributu
+	 * @param $value {String} Hodnota atributu
+	 * @example $model->set('name', 'Jan Novak')
+	 * @return Any
+	 */
 	public function set($index, $value) {
 		return $this->attributes[$index] = $value;
 	}
+
+	/**
+	 * Odstraní atribut
+	 * @param $index {String} Název atributu
+	 */
 	public function remove($index) {
 		unset($this->attributes[$index]);
 	}
+
+	/**
+	 * Vrátí true nebo false podle toho zda model má daný atribut
+	 * @param $index {String} Název atributu
+	 * @return Bool
+	 */
 	public function has($index) {
 		return isset($this->attributes[$index]);
 	}
+
+	/**
+	 * Odstraní všechy atributy
+	 */
 	public function clear() {
 		$this->attributes = array();
 	}
+
+	/**
+	 * Vrátí hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @return Any
+	 */
 	public function getId() {
 		return $this->get($this->idAttribute);
 	}
+
+	/**
+	 * Nastaví hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @param $value {Any} Hodnota
+	 * @return Any
+	 */
 	public function setId($value) {
 		return $this->set($this->idAttribute, $value);
 	}
+
+	/**
+	 * Uloží model do databáze.
+	 * Pokud id modelu v databázi neexistuje vytvoří se nový řádek.
+	 * Pokud id modelu v databázi už existuje, tak se aktualizuje řádek s daným id.
+	 * @return Bool
+	 * @throws
+	 */
 	public function save() {
 		global $app;
 		if (!isset($this->db_table)) {
@@ -85,6 +196,11 @@ class LapiModel {
 
 		return true;
 	}
+
+	/**
+	 * Uloží do modelu data z databáze
+	 * @return Bool
+	 */
 	public function fetch() {
 		global $app;
 		if (!isset($this->db_table)) {
@@ -105,12 +221,20 @@ class LapiModel {
 
 		$data = $rt->fetch_object();
 
+		$data = $this->parse($data);
+
 		foreach ($data as $key => $value) {
 			$this->set($key, $value);
 		}
 		
 		return true;
 	}
+
+	/**
+	 * Odstraní model z databáze
+	 * @return Bool
+	 * @throws
+	 */
 	public function destroy($attr) {
 		global $app;
 		if (!isset($this->db_table) || !$this->getId()) {
@@ -135,18 +259,45 @@ class LapiModel {
 
 		return true;
 	}
+
+	/**
+	 * Funkce, kterou můžou přepsat třídy dědící z této.
+	 * Funkce buď vrátí nulu, jako že je vše v přoádku. Nebo řetězec obsahující chybovou zprávu.
+	 * Tuto funkci využívá metoda isValid
+	 * @return String|Integer
+	 */
 	public function validate() {
 		return 0;
 	}
+
+	/**
+	 * Zkontroluje zda je model validní.
+	 * Pokud není přepsaná metoda validate, tak je model validní vždy
+	 * @return Bool
+	 * @example if ( !$model->isValid() ) echo $model->validationError
+	 */
 	public function isValid() {
 		$this->validationError = $this->validate();
 		return !$this->validationError;
 	}
+
+	/**
+	 * Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse
+	 * a tak data změnit dřív než se uloží do modelu.
+	 * @param $store {Array|Object} Asoc. pole nebo objekt obsahující data z databáze
+	 * @return Array|Object
+	 */
 	public function parse($store) {
-		foreach($store as $key => $value) {
+		return $store;
+		/*foreach($store as $key => $value) {
 			$this->set($key, $value);
-		}
+		}*/
 	}
+
+	/**
+	 * Zjistí, jestli je model už v databázi
+	 * @return Bool
+	 */
 	public function isNew() {
 		global $app;
 		if ($this->getId() && strlen($this->getId()) > 0) {
@@ -164,6 +315,13 @@ class LapiModel {
 		} 
 		return true;
 	}
+
+	/**
+	 * Vrátí pole pouze specifikovaných atributů
+	 * @param $arr {Array} Pole názvů atributů, která chceme
+	 * @return Array
+	 * @example $model->pick(array('name', 'age')) => array('name' => 'Jan Novak', 'age' => 27)
+	 */
 	public function pick($arr) {
 		$rt = array();
 
@@ -175,6 +333,13 @@ class LapiModel {
 
 		return $rt;
 	}
+
+	/**
+	 * Vrátí pole všech atribůtů, kromě těch které jsou specifikovány
+	 * @param $arr {Array} Pole názvů atributů, která nechceme
+	 * @return Array
+	 * @example $model->omit(array('name')) => array('age' => 27, 'mail' => 'jan.novak@mail.cz')
+	 */
 	public function omit($arr) {
 		$rt = array();
 		$keys = $this->keys();
@@ -187,6 +352,12 @@ class LapiModel {
 
 		return $rt;
 	}
+
+	/**
+	 * Vrátí pole názvů atributů
+	 * @return Array
+	 * @example $model->keys() => array('name', 'age', 'mail')
+	 */
 	public function keys() {
 		$rt = array();
 		foreach($this->attributes as $key => $value) {
@@ -194,6 +365,12 @@ class LapiModel {
 		}
 		return $rt;
 	}
+
+	/**
+	 * Vráti pole hodnot atributů
+	 * @return Array
+	 * @example $model->keys() => array('Jan Novak', '27', 'jan.novak@mail.cz')
+	 */
 	public function values() {
 		$rt = array();
 		foreach($this->attributes as $key => $value) {
@@ -201,6 +378,12 @@ class LapiModel {
 		}
 		return $rt;
 	}
+
+	/**
+	 * Vrátí vícerozměrné pole atributů uspořadaných do dvojic název/hodnota
+	 * @return Array
+	 * @example $model->pairs() => array(array('name', 'Jan Novak'), array('age', 27), array('mail', 'jan.novak@mail.cz'))
+	 */
 	public function pairs() {
 		$rt = array();
 		foreach($this->attributes as $key => $value) {

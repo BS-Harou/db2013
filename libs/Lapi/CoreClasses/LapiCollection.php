@@ -1,19 +1,48 @@
 <?php
 
+/**
+ * Třída reprezentující kolekci stejného typu řádků z databáze
+ * @class LapiCollection
+ */
 class LapiCollection {
+
+	/**
+	 * Název třídy modelu
+	 * @type String
+	 */
 	public $model = 'LapiModel';
+
+	/**
+	 * Pole všech modelů v kolekci
+	 * @type Array
+	 */
 	public $models = array();
+
+	/**
+	 * Název tabulky ke které kolekce patří
+	 * @type String
+	 * @example 'users'
+	 */
 	public $db_table;
 
-	public function __construct($attr=NULL) {
+	/**
+	 * Konstruktor, zavolá metodu initialize (pokud existuje)
+	 * @param $attr {Array} Pokud chcete rovnou stáhnout data z databáze při vytvoření modelu, tak zadejte pole parametrů
+	 * @example new LapiCollection( array('where' => array('name' => 'Jan Novak'), 'limit' => 1) );
+	 */
+	public function __construct($params=NULL) {
 		if (method_exists($this, 'initialize')) {
 			$this->initialize();
 		}
-		if (is_array($attr)) {
-			$this->fetch($attr);
+		if (is_array($params)) {
+			$this->fetch($params);
 		}
 	}
 
+	/**
+	 * Přidá model do kolekce
+	 * @param $obj {LapiModel|Array} Model či pole modelů, které se mají přidat do kolekce
+	 */
 	public function add($obj) {
 		if (is_array($obj)) {
 			for ($i=0; $i<count($obj); $i++) $this->models[] = $obj[$i];
@@ -22,6 +51,10 @@ class LapiCollection {
 		}
 	}
 
+	/**
+	 * Odebere model z kolekce
+	 * @param $obj {LapiModel|Array} Model či pole modelů, které se mají z kolekce odebrat
+	 */
 	public function remove($obj) {
 		if ($obj instanceof LapiModel) {
 			for ($i=0; $i<count($this->models); $i++) {
@@ -38,6 +71,10 @@ class LapiCollection {
 		}
 	}
 
+	/**
+	 * Odebere všechny předchozí modely z kolekce a přidá nové
+	 * @param $arr {Array} Pole nových modelů
+	 */
 	public function reset($arr) {
 		$this->models = array();
 		for ($i=0; $i<count($arr); $i++) {
@@ -45,6 +82,11 @@ class LapiCollection {
 		}
 	}
 
+	/**
+	 * Vrátí model z kolekce podle jeho id nebo cid
+	 * @param $id {String} id nebo cid modelu
+	 * @return LapiModel
+	 */
 	public function get($id) {
 		for ($i=0; $i<count($this->models); $i++) {
 			if ($this->models[$i]->getId() === $id) return $this->models[$i];
@@ -54,18 +96,34 @@ class LapiCollection {
 		}
 	}
 
+	/**
+	 * Vrátí model na daném indexu
+	 * @param $index {Integer} Index modelu
+	 * @return LapiModel
+	 */
 	public function at($index) {
 		return $this->models[$index];
 	}
 
+
+	/**
+	 * Vrátí počet modelů v kolekci
+	 * @return Integer
+	 */
 	public function length() {
 		return count($this->models);
 	}
 
-	public function parse($arr) {
-		return $arr;
-	}
 
+	/*public function parse_str(str)($arr) {
+		return $arr;
+	}*/
+
+	/**
+	 * Získá modely z databáze
+	 * @param $attr {Array} Parametry pro filtrovaní
+	 * @example $collection->fetch( array('where' => 'age < 20') );
+	 */
 	public function fetch($attr=array()) {
 		global $app;
 
@@ -96,6 +154,10 @@ class LapiCollection {
 		return true;
 	}
 
+	/**
+	 * Vrátí počet všech řádků v databázi po zavolání fetch s limitem
+	 * @return Integer
+	 */
 	public function allRowsCount() {
 		global $app;
 
@@ -114,6 +176,12 @@ class LapiCollection {
 		return $data->amount;
 	}
 
+	/**
+	 * Vrátí pole hodnot daného atributu
+	 * @param $str {String} Název atributu
+	 * @return Array
+	 * @example $collection->pluck('age') => array(27, 29, 30, 14, 18)
+	 */
 	public function pluck($str) {
 		$rt = array();
 		for ($i=0,$j=$this->length(); $i < $j; $i++) {
@@ -122,6 +190,12 @@ class LapiCollection {
 		return $rt;
 	}
 
+	/**
+	 * Vrátí pole modelů, které odpovídají zadaným parametrům
+	 * @param $attrs {Array} Parametry.
+	 * @return Array
+	 * @example $collection->where(array('name' => 'Jan Novak')) => array([LapiModel Object])
+	 */
 	public function where($attrs) {
 		$rt = array();
 		for ($i=0,$j=$this->length(); $i < $j; $i++) {
@@ -135,6 +209,12 @@ class LapiCollection {
 		return $rt;
 	}
 
+	/**
+	 * Vrátí první model, které odpovídá zadaným parametrům
+	 * @param $attrs {Array} Parametry.
+	 * @return LapiModel
+	 * @example $collection->findWhere(array('name' => 'Jan Novak')) => [LapiModel Object]
+	 */
 	public function findWhere($attrs) {
 		for ($i=0,$j=$this->length(); $i < $j; $i++) {
 			foreach ($attrs as $key => $value) {
@@ -147,6 +227,12 @@ class LapiCollection {
 		return NULL;
 	}
 
+	/**
+	 * Vytvoří nový model, přidá ho do kolekce a uloží do databáze
+	 * @param $attrs {Array} Asoc. pole atributů
+	 * @param $options {Array} Pole nastavení. Zatím jen položka 'wait', která pokud je true a model se nepodaří uložit do db, tak se nepřidá ani do kolekce
+	 * @return LapiModel
+	 */
 	public function create($attrs, $options=array()) {
 		if (!isset($this->model) || !$this->model || !is_string($this->model) || strlen($this->model) == 0) {
 			return NULL;
