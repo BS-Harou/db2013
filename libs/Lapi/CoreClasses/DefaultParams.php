@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Třídá, ze které dědí třídy jejichž instance se předávají do Mustache templatů.
+ * Všechny metody a vlastnosti jsou pak v templatech přístupné.
+ * @class DefaultParams
+ */
 class DefaultParams {
 	private function getSettings($str) {
 		global $app;
