@@ -114,10 +114,15 @@ class LapiCollection {
 		return count($this->models);
 	}
 
-
-	/*public function parse_str(str)($arr) {
+	/**
+	 * Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse
+	 * a tak data změnit dřív než se uloží do modelů.
+	 * @param $arr {Array} Asoc. pole obsahující data z databáze
+	 * @return Array
+	 */
+	public function parse($arr) {
 		return $arr;
-	}*/
+	}
 
 	/**
 	 * Získá modely z databáze
