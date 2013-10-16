@@ -31,10 +31,13 @@ require_once('libs/Lapi/init.php');
 /**
  * "Router"
  */
+$url;
+$GLOBALS['url'] = $url;
+
 if (isset($_GET['str'])) {
-	$str = stripString($_GET['str']);	
+	$url = new LapiURL($_GET['str']);
 } else {
-	$str = '';
+	$url = new LapiURL();
 }
 
 if (isset($_SESSION['user_nick'])) {
@@ -46,15 +49,14 @@ if (isset($_SESSION['user_nick'])) {
 
 }
 
-if ($str) {
-	$path = $app->dirSections . '/' . $str . '.php';
+if ($url->section) {
+	$path = $app->dirSections . '/' . $url->section . '.php';
 	if (file_exists($path)) {
 		include($path);
 	} else {
 		render('e404');
 	}
 } else {
-	$params = new DefaultParams();
 	$app->redirect('main');
 }
 

@@ -250,4 +250,20 @@ class LapiCollection {
 		}
 		return $model;
 	}
+
+	/**
+	 * Vrátí JSON řetězec kolekce
+	 * @return String
+	 */
+	public function toJSON() {
+		$rt = '[';
+		for ($i=0, $j=$this->length(); $i < $j; $i++) {
+			$tmp = json_encode($this->models[$i]->attributes);
+			$rt .= $tmp;
+			if ($i + 1 < $j) $rt .= ',';
+		}
+		$rt .= ']';
+
+		return $rt;
+	}
 }

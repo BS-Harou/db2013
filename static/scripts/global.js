@@ -50,3 +50,11 @@ function template(tpl, obj) {
 		return obj[(f || '').trim()] || '';
 	});
 }
+
+function saveParse(str) {
+	try {
+		return JSON.parse(str);
+	} catch(e) {
+		return null;
+	}
+}
