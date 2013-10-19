@@ -9,7 +9,7 @@ header('Content-Type: application/json; charset=utf-8');
 
 $collection = $url->params[0];
 
-$names = array('users', 'bands', 'songs', 'albums', 'musicians');
+$names = array('users', 'bands', 'songs', 'albums', 'musicians', 'publishers');
 
 if (!in_array($collection, $names)) {
 	echo '{ "error": "Neznáma kolekce" }';

@@ -235,7 +235,7 @@ class LapiModel {
 	 * @return Bool
 	 * @throws
 	 */
-	public function destroy($attr) {
+	public function destroy($attr=array()) {
 		global $app;
 		if (!isset($this->db_table) || !$this->getId()) {
 			return false;

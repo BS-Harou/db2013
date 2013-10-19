@@ -4,7 +4,12 @@
 <script>
 	document.addEventListener('DOMContentLoaded', init);
 
+	var currentCollection = '{{collection}}' || 'bands';
+
 	function init() {
+		loadCollection(currentCollection);
+
+		
 		var addTpl = $('#template-add-band').textContent;
 
 		$('#button-add').addEventListener('click', function() {
@@ -23,6 +28,11 @@
 			if (!t.id || !t.id.match(/^nav\-/)) return;
 
 			var collection = t.id.replace('nav-', '');
+			loadCollection(collection);
+			e.preventDefault();
+		});
+
+		function loadCollection(collection) {
 			var xhr = new XMLHttpRequest();
 			xhr.open('post', './list/' + collection, true);
 			xhr.onload = function() {
@@ -32,11 +42,21 @@
 				} else if (data.error) {
 					alert(data.error);
 				} else {
+					currentCollection = collection;
 					renderData(data);
 				}
 			}
 			xhr.send(null);
-			e.preventDefault();
+		}
+
+		document.addEventListener('click', function(e) {
+			var t = e.target;
+
+			if (t.classList.contains('item-delete')) {
+				var c = confirm('Určitě chete odstranit tuto položku??');
+				if (!c) return;
+				location.href = './delete/users/' + t.dataset.id;
+			}
 		});
 
 		function renderData(data) {
@@ -49,21 +69,6 @@
 			}
 		}
 
-		/*(function() {
-			var tpl = document.querySelector('#template-item').textContent;
-			var main = document.querySelector('main');
-			main.innerHTML = '';
-
-			for (var i=0; i<100; i++) {
-				main.innerHTML += tpl;
-			}
-		})();*/
-
-		document.addEventListener('click', function(e) {
-			if (e.target.classList.contains('item-delete')) {
-				confirm('Určitě chete odstranit tuto položku?');
-			}
-		});
 	}
 </script>
 
@@ -93,7 +98,7 @@
 	<div class="list-item">
 		<div class="item-name"><%= nick %></div>
 		<div class="item-edit button">Upravit</div>
-		<div class="item-delete button">Smazat</div>
+		<div class="item-delete button" data-id="<%= id %>">Smazat</div>
 	</div>
 </script>
 
