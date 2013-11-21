@@ -1,6 +1,6 @@
 <?php
 
-//require_once($app->dirModels . '/Permissions.php');
+require_once($app->dirModels . '/Zadosti.php');
 
 class User extends LapiModel {
 	public $idAttribute = 'nick';
@@ -28,10 +28,12 @@ class User extends LapiModel {
 	}
 
 	public function requestModPermissions() {
-		/*new Permission(array(
-			'user_id' => $this->get('id'),
+		$novaZadost = new Zadost(array(
+			'Uzivatele_id_Uzivatele' => $this->get('id'),
+			'datum' => date('dd.mm.yy')
+		));
 
-		));*/
+		$novaZadost->save();
 	}
 }
 
