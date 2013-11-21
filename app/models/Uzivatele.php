@@ -3,14 +3,17 @@
 require_once($app->dirModels . '/Zadosti.php');
 
 class Uzivatel extends LapiModel {
-	public $idAttribute = 'nick';
+	public $idAttribute = 'id_Uzivatele';
 	public $defaults = array(
-		'id'    =>  NULL,
-		'nick'  => NULL,
+		'id_Uzivatele'    =>  NULL,
+		'nickname'  => NULL,
+		'jmeno' => '',
+		'prijmeni' => '',
+		'icq' => '',
 		'pass' => '',
 		'activated'  => false,
 		/*'registered'  => 0, .. commented to get current timestamp */
-		'email'  => 'no@email.at.all'
+		'mail'  => ''
 	);
 	public $db_table = 'Uzivatele';
 
