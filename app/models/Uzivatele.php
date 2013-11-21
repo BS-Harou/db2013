@@ -2,7 +2,7 @@
 
 require_once($app->dirModels . '/Zadosti.php');
 
-class User extends LapiModel {
+class Uzivatel extends LapiModel {
 	public $idAttribute = 'nick';
 	public $defaults = array(
 		'id'    =>  NULL,
@@ -12,9 +12,9 @@ class User extends LapiModel {
 		/*'registered'  => 0, .. commented to get current timestamp */
 		'email'  => 'no@email.at.all'
 	);
-	public $db_table = 'users';
+	public $db_table = 'Uzivatele';
 
-	public function changePassword($oldPass, $newPass, $confirmPass) {
+	public function zmenitHeslo($oldPass, $newPass, $confirmPass) {
 		if ($newPass != $confirmPass) return false;
 		if (strlen($newPass) < 5) return false;
 
@@ -27,7 +27,7 @@ class User extends LapiModel {
 		return $this->save();
 	}
 
-	public function requestModPermissions() {
+	public function zazadatModPrava() {
 		$novaZadost = new Zadost(array(
 			'Uzivatele_id_Uzivatele' => $this->get('id'),
 			'datum' => date('dd.mm.yy')
@@ -38,7 +38,7 @@ class User extends LapiModel {
 }
 
 
-class Users extends LapiCollection {
-	public $db_table = 'users';
-	public $model = 'User';
+class Uzivatele extends LapiCollection {
+	public $db_table = 'Uzivatele';
+	public $model = 'Uzivatel';
 }

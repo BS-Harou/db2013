@@ -1,6 +1,6 @@
 <?php
 
-require_once($app->dirModels . '/Users.php');
+require_once($app->dirModels . '/Uzivatele.php');
 
 if (!isset($_POST['nick'])) {
 	$app->redirect('main');
@@ -37,7 +37,7 @@ if ($conditions != 'on') {
 }
 
 // USER EXISTS?
-$users = new Users(array(
+$users = new Uzivatele(array(
 	'where' => array(
 		'nick' => $nick
 	),
@@ -49,7 +49,7 @@ if ($users->length()) {
 	exit;
 }
 
-$user = new User();
+$user = new Uzivatel();
 $user->set('nick', $nick);
 $user->set('pass', md5($pass1));
 $user->set('email', $email);

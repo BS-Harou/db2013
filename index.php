@@ -42,8 +42,8 @@ if (isset($_GET['str'])) {
 
 if (isset($_SESSION['user_nick'])) {
 
-	require_once($app->dirModels . '/Users.php');
-	$app->user = new User();
+	require_once($app->dirModels . '/Uzivatele.php');
+	$app->user = new Uzivatel();
 	$app->user->set('nick', $_SESSION['user_nick']);
 	$app->user->fetch();
 
