@@ -2,7 +2,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-DROP SCHEMA IF EXISTS `mydb` ;
 CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
 USE `mydb` ;
 
@@ -34,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Clenove` (
   `misto_narozeni` VARCHAR(45) NULL,
   `datum_umrti` DATETIME NULL,
   `historie` TEXT NULL,
-  `www` VARCHAR(45) NULL,
+  `www` VARCHAR(200) NULL,
   PRIMARY KEY (`id_Clenove`))
 ENGINE = InnoDB;
 
@@ -78,7 +77,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Uzivatele` (
   `prijmeni` VARCHAR(45) NOT NULL,
   `mail` VARCHAR(45) NOT NULL,
   `icq` VARCHAR(45) NULL,
-  PRIMARY KEY (`id_Uzivatele`))
+  `heslo` VARCHAR(100) NOT NULL,
+  `datum_registrace` DATETIME NOT NULL,
+  PRIMARY KEY (`id_Uzivatele`),
+  UNIQUE INDEX `nickname_UNIQUE` (`nickname` ASC))
 ENGINE = InnoDB;
 
 
@@ -170,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Skladby` (
   `nazev` VARCHAR(45) NOT NULL,
   `delka` TIME NOT NULL,
   `text` TEXT NULL,
-  `youtube` VARCHAR(45) NULL,
+  `youtube` VARCHAR(200) NULL,
   `Alba_id_Alba` INT NOT NULL,
   PRIMARY KEY (`id_Skladby`),
   INDEX `fk_Skladby_Alba1_idx` (`Alba_id_Alba` ASC),
@@ -302,7 +304,7 @@ DROP TABLE IF EXISTS `mydb`.`Zadosti` ;
 CREATE TABLE IF NOT EXISTS `mydb`.`Zadosti` (
   `id_Zadosti` INT NOT NULL,
   `datum` DATETIME NOT NULL,
-  `zpracováno` TINYINT(1) NULL,
+  `zpracovano` TINYINT(1) NULL,
   `schvaleno` TINYINT(1) NULL,
   `Uzivatele_id_Uzivatele` INT NOT NULL,
   PRIMARY KEY (`id_Zadosti`),
