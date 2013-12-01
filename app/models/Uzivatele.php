@@ -5,16 +5,16 @@ require_once($app->dirModels . '/Zadosti.php');
 class Uzivatel extends LapiModel {
 	public $idAttribute = 'id_Uzivatele';
 	public $defaults = array(
-		'id_Uzivatele'    =>  NULL,
-		'nickname'  => NULL,
-		'jmeno' => '',
-		'prijmeni' => '',
-		'icq' => '',
-		'pass' => '',
-		'activated'  => false,
-		/*'registered'  => 0, .. commented to get current timestamp */
-		'mail'  => ''
+		'id_Uzivatele'  => NULL,
+		'nickname'      => NULL,
+		'jmeno'         => '',
+		'prijmeni'      => '',
+		'icq'           => '',
+		'heslo'         => '',
+		/*'datum_registrace' => NULL, // commented to get current timestamp */
+		'mail'          => ''
 	);
+
 	public $db_table = 'Uzivatele';
 
 	public function zmenitHeslo($oldPass, $newPass, $confirmPass) {

@@ -4,7 +4,7 @@
 $collection = $url->params[0];
 $id = $url->params[1];
 
-$names = array('Uzivatele', 'Skupiny', 'Pisnicky', 'Alba', 'Hudebnici', 'Vydavatele');
+$names = array('Uzivatele', 'Skupiny', 'Pisnicky', 'Alba', 'Clenove', 'Vydavatele');
 
 if (!in_array($collection, $names) || !$id) {
 	$app->redirect('admin/' . $collection);
@@ -12,21 +12,26 @@ if (!in_array($collection, $names) || !$id) {
 	exit;
 }
 
+require_once($app->dirModels . '/' . $collection . '.php');
+
 if ($id == 'all') {
 	$app->db->query('DELETE * FROM `' + $collection + '`');
 } else {
 	$id = (int) $id;
+
+	$coll = new $collection();
+	$dummy = $coll->create(array(), array('simple' => true));
+
+	$coll->fetch(array(
+		'where' => array(
+			$dummy->idAttribute => $id
+		),
+		'limit' => 1
+	));
+
+	if ($coll->length() == 1) {
+		$success = $coll->at(0)->destroy();			
+	}
 }
-
-$users = new $collection(array(
-	'where' => array(
-		'id' => $id
-	),
-	'limit' => 1
-));
-
-if ($users->length() == 1) {
-	$users->at(0)->destroy();	
-} 
 
 $app->redirect('admin/' . $collection);

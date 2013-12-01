@@ -1,6 +1,6 @@
 <?php
 
-require_once($app->dirModels . '/Users.php');
+require_once($app->dirModels . '/Uzivatele.php');
 
 /**
  * Define functions
@@ -8,17 +8,17 @@ require_once($app->dirModels . '/Users.php');
 function login($nick, $pass) {
 	global $app;
 
-	$users = new Users(array(
+	$users = new Uzivatele(array(
 		'where' => array(
-			'nick' => $nick,
-			'pass' => md5($pass)
+			'nickname' => $nick,
+			'heslo' => md5($pass)
 		),
 		'limit' => 1
 	));
 	
 	if ($users->length() > 0) {   
 		$user = $users->at(0);
-		$_SESSION['user_nick'] = $user->get('nick');
+		$_SESSION['user_nick'] = $user->get('nickname');
 
 		$app->user = $user;
 		

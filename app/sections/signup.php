@@ -39,7 +39,7 @@ if ($conditions != 'on') {
 // USER EXISTS?
 $users = new Uzivatele(array(
 	'where' => array(
-		'nick' => $nick
+		'nickname' => $nick
 	),
 	'limit' => 1
 ));
@@ -50,9 +50,9 @@ if ($users->length()) {
 }
 
 $user = new Uzivatel();
-$user->set('nick', $nick);
-$user->set('pass', md5($pass1));
-$user->set('email', $email);
+$user->set('nickname', $nick);
+$user->set('heslo', md5($pass1));
+$user->set('mail', $email);
 $user->save();
 
 // mail(... 'Confirm bla bla');

@@ -244,7 +244,13 @@ class LapiCollection {
 		}
 
 		$model = new $this->model($attrs);
+
+		if (isset($options['simple']) && $options['simple'] == true) {
+			return $model;
+		}
+
 		$is_saved = $model->save();
+
 		if (!is_array($options) || !isset($options['wait']) || $options['wait'] != true || $is_saved == true) {
 			$this->add($model);
 		}
