@@ -21,12 +21,15 @@ class Uzivatel extends LapiModel {
 		if ($newPass != $confirmPass) return false;
 		if (strlen($newPass) < 5) return false;
 
+
+		
+
 		
 		$oldPass = md5($oldPass);
-		if ($oldPass != $this->get('pass')) return false;
+		if ($oldPass != $this->get('heslo')) return false;
 
 		$newPass = md5($newPass);
-		$this->set('pass', $newPass);
+		$this->set('heslo', $newPass);
 		return $this->save();
 	}
 

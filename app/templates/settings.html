@@ -10,17 +10,31 @@
 </nav>
 
 <main>
+	<div class="success_msg">{{success_msg}}</div>
+	<div class="error_msg">{{error_msg}}</div>
 	<form>
-		<h1>Zažádat o moderátorská práva:</h1>
-		<input type="submit" value="Zažádat" class="button">
+		<div class="form-name">Zažádat o moderátorská práva:</div>
+		<div class="form-buttons">
+			<input type="submit" value="Zažádat" class="button">
+		</div>
 	</form>
 
-	<form>
-		<h1>Změnit heslo</h1>
-		<label>Staré heslo: <input type="password" name="oldpass"></label>
-		<label>Nové heslo: <input type="password" name="newpass"></label>
-		<label>Znovu nové heslo: <input type="password" name="confirmpass"></label>
-		<input type="submit" value="Změnit" class="button">
+	<form method="POST">
+		<div class="form-name">Změnit heslo</div>
+
+		<input type="hidden" name="action" value="change_password" />
+		<label>Staré heslo:</label>
+			<input type="password" name="old_pass" />
+
+		<label>Nové heslo:</label>
+			<input type="password" name="new_pass" />
+
+		<label>Znovu nové heslo:</label>
+			<input type="password" name="confirm_pass" />
+
+		<div class="form-buttons">
+			<input type="submit" value="Změnit" class="button" />
+		</div>
 	</form>
 
 </main>

@@ -11,7 +11,8 @@ class Skupina extends LapiModel {
 		'nazev'         => NULL,
 		'rok_zalozeni'  => 0,
 		'historie'      => '',
-		'www'           => ''
+		'www'           => '',
+		'foto'          => ''
 	);
 
 	public $db_table = 'Skupiny';

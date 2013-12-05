@@ -44,7 +44,7 @@ if (isset($_SESSION['user_nick'])) {
 
 	require_once($app->dirModels . '/Uzivatele.php');
 	$app->user = new Uzivatel();
-	$app->user->set('nick', $_SESSION['user_nick']);
+	$app->user->setId($_SESSION['user_id']);
 	$app->user->fetch();
 
 }

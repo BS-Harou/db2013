@@ -19,6 +19,7 @@ function login($nick, $pass) {
 	if ($users->length() > 0) {   
 		$user = $users->at(0);
 		$_SESSION['user_nick'] = $user->get('nickname');
+		$_SESSION['user_id'] = $user->get('id_Uzivatele');
 
 		$app->user = $user;
 		
