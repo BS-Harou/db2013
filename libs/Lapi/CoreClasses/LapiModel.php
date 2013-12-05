@@ -194,6 +194,7 @@ class LapiModel {
 		}
 
 		if (!$rt) {
+			echo $app->db->mysqli->error . '\n\n';
 			throw new Exception('LapiModel Error. Can\'t save model to MySQL');
 		}
 

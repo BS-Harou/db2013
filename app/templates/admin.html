@@ -5,6 +5,57 @@
 	document.addEventListener('DOMContentLoaded', init);
 
 	var currentCollection = '{{collection}}' || 'Skupiny';
+	var currentID = 0;
+
+	function loadCollection(collection, specialID) {
+		var xhr = new XMLHttpRequest();
+		if (specialID) {
+			xhr.open('post', './list/' + collection +'/' + specialID, true);
+		} else {
+			xhr.open('post', './list/' + collection, true);	
+		}
+		
+		xhr.onload = function() {
+			var data = saveParse(this.response);
+			if (!data) {
+				alert('Unknown error');
+			} else if (data.error) {
+				alert(data.error);
+			} else {
+				currentCollection = collection;
+				currentID = specialID;
+				renderData(data);
+			}
+		}
+		xhr.send(null);
+	}
+
+	function addItem(data) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('post', './add/' + currentCollection, true);
+		xhr.onload = function(e) {
+			var data = saveParse(this.response);
+			if (!data) {
+				$('main').innerHTML = 'Neznáma chyba. Položka nebyla přidána.';
+			} else if (data.error) {
+				$('main').innerHTML = 'Chyba: ' + data.error;
+			} else {
+				$('main').innerHTML = 'Položka úspěšna přidána';
+				setTimeout(loadCollection, 1000, currentCollection, currentID);
+			}
+		}
+		xhr.send(data);
+	}
+
+	function renderData(data) {
+		var tpl = document.querySelector('#template-item-' + currentCollection.toLowerCase()).textContent;
+		var main = document.querySelector('main');
+		main.innerHTML = '';
+
+		for (var i=0; i<data.length; i++) {
+			main.innerHTML += template(tpl, data[i]);
+		}
+	}
 
 	function init() {
 		loadCollection(currentCollection);
@@ -12,7 +63,7 @@
 		
 		$('#button-add').addEventListener('click', function() {
 			var addTpl = $('#template-add-' + currentCollection.toLowerCase()).textContent;
-			$('main').innerHTML = addTpl;
+			$('main').innerHTML = template(addTpl, { 'special_id': currentID });
 		});
 
 		$('#button-remove-all').addEventListener('click', function() {
@@ -31,22 +82,7 @@
 			e.preventDefault();
 		});
 
-		function loadCollection(collection) {
-			var xhr = new XMLHttpRequest();
-			xhr.open('post', './list/' + collection, true);
-			xhr.onload = function() {
-				var data = saveParse(this.response);
-				if (!data) {
-					alert('Unknown error');
-				} else if (data.error) {
-					alert(data.error);
-				} else {
-					currentCollection = collection;
-					renderData(data);
-				}
-			}
-			xhr.send(null);
-		}
+		
 
 
 
@@ -65,32 +101,7 @@
 			}
 		});
 
-		function addItem(data) {
-			var xhr = new XMLHttpRequest();
-			xhr.open('post', './add/' + currentCollection, true);
-			xhr.onload = function(e) {
-				var data = saveParse(this.response);
-				if (!data) {
-					$('main').innerHTML = 'Neznáma chyba. Položka nebyla přidána.';
-				} else if (data.error) {
-					$('main').innerHTML = 'Chyba: ' + data.error;
-				} else {
-					$('main').innerHTML = 'Položka úspěšna přidána';
-					setTimeout(loadCollection, 1000, currentCollection);
-				}
-			}
-			xhr.send(data);
-		}
 
-		function renderData(data) {
-			var tpl = document.querySelector('#template-item-' + currentCollection.toLowerCase()).textContent;
-			var main = document.querySelector('main');
-			main.innerHTML = '';
-
-			for (var i=0; i<data.length; i++) {
-				main.innerHTML += template(tpl, data[i]);
-			}
-		}
 
 	}
 </script>
@@ -127,9 +138,25 @@
 
 <script type="text/template" id="template-item-skupiny">
 	<div class="list-item">
-		<div class="item-name"><%= nazev %></div>
+		<div class="item-name" onclick="loadCollection('Alba', <%= id_Skupiny %>)"><%= nazev %></div>
 		<div class="item-edit button">Upravit</div>
 		<div class="item-delete button" data-id="<%= id_Skupiny %>">Smazat</div>
+	</div>
+</script>
+
+<script type="text/template" id="template-item-alba">
+	<div class="list-item">
+		<div class="item-name" onclick="loadCollection('Skladby', <%= id_Alba %>)"><%= nazev %></div>
+		<div class="item-edit button">Upravit</div>
+		<div class="item-delete button" data-id="<%= id_Alba %>">Smazat</div>
+	</div>
+</script>
+
+<script type="text/template" id="template-item-skladby">
+	<div class="list-item">
+		<div class="item-name"><%= nazev %></div>
+		<div class="item-edit button">Upravit</div>
+		<div class="item-delete button" data-id="<%= id_Skladby %>">Smazat</div>
 	</div>
 </script>
 
@@ -166,6 +193,65 @@
 
 		<label>Historie:</label>
 			<textarea name="historie" rows="6"></textarea>
+
+		<div class="form-buttons">
+			<div class="button" id="ajax-form-add">Přidat</div> <div id="ajax-form-cancel" class="button">Zrušit</div>
+		</div>
+	</form>
+</script>
+
+
+<!-- TEMPLATE: CREATE ALBUM -->
+
+<script type="text/template" id="template-add-alba">
+	<form id="ajax-form" method="post" action="./add/Alba">
+		<input type="hidden" name="id_Skupiny" value="<%= special_id %>">
+		<input type="hidden" name="id_Vydavatel" value="1">
+
+
+		<div class="form-name">Přidat album skupině</div>
+
+		<label>Název:</label>
+			<input type="text" name="nazev">
+
+		<label>Datum vydání:</label>
+			<input type="date" name="datum_vydani">
+
+		<label>Délka alba:</label>
+			<input type="text" name="delka_alba">
+
+		<label>Adresa k fotce:</label>
+			<input type="text" name="obal">
+
+		
+
+		<div class="form-buttons">
+			<div class="button" id="ajax-form-add">Přidat</div> <div id="ajax-form-cancel" class="button">Zrušit</div>
+		</div>
+	</form>
+</script>
+
+<!-- TEMPLATE: CREATE SONG -->
+
+<script type="text/template" id="template-add-skladby">
+	<form id="ajax-form" method="post" action="./add/Skladby">
+		<input type="hidden" name="id_Alba" value="<%= special_id %>">
+
+		<div class="form-name">Přidat skladbu albu</div>
+
+		<label>Název:</label>
+			<input type="text" name="nazev">
+
+		<label>Popis:</label>
+			<input type="text" name="text">
+
+		<label>Délka skladby:</label>
+			<input type="text" name="delka">
+
+		<label>YouTube adresa:</label>
+			<input type="text" name="youtube">
+
+		
 
 		<div class="form-buttons">
 			<div class="button" id="ajax-form-add">Přidat</div> <div id="ajax-form-cancel" class="button">Zrušit</div>

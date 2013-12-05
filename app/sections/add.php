@@ -3,7 +3,7 @@
 
 $collection = $url->params[0];
 
-$names = array('Uzivatele', 'Skupiny', 'Pisnicky', 'Alba', 'Clenove', 'Vydavatele');
+$names = array('Uzivatele', 'Skupiny', 'Skladby', 'Alba', 'Clenove', 'Vydavatele');
 
 if (!in_array($collection, $names)) {
 	$app->redirect('admin/' . $collection);

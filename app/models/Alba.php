@@ -6,10 +6,11 @@ class Album extends LapiModel {
 	public $idAttribute = 'id_Alba';
 	public $defaults = array(
 		'id_Alba'      => NULL,
+		'nazev'        => '',
 		'obal'         => '',
 		'datum_vydani' => '',
 		'delka_alba'   => '',
-		'id_Skupiny'   => NULL
+		'id_Skupiny'   => NULL,
 		'id_Vydavatel' => NULL
 	);
 
@@ -18,7 +19,7 @@ class Album extends LapiModel {
 	public function vydavatelAlba() {
 		$id = $this->get('id_Vydavatel');
 		if (!$id || $id < 1) {
-			// neni nastaeny vydavatel
+			// neni nastaveny vydavatel
 			return NULL;
 		}
 

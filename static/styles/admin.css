@@ -181,6 +181,10 @@ main {
  * FORMS
  */
 
+.form-buttons {
+	margin-top: 1rem;
+}
+
 label {
 	margin-top: 0.8rem;
 	margin§bottom: 0.2rem;

@@ -10,7 +10,7 @@ header('Content-Type: application/json; charset=utf-8');
 $collection = $url->params[0];
 $id = $url->params[1];
 
-$names = array('Uzivatele', 'Skupiny', 'Pisnicky', 'Alba', 'Clenove', 'Vydavatele');
+$names = array('Uzivatele', 'Skupiny', 'Skladby', 'Alba', 'Clenove', 'Vydavatele');
 
 if (!in_array($collection, $names)) {
 	echo '{ "error": "Neznáma kolekce" }';
@@ -25,6 +25,13 @@ if ($collection == 'Alba') {
 	$c->fetch(array(
 		'where' => array(
 			'id_Skupiny' => $id
+		),
+		'limit' => 50
+	));
+} else if ($collection == 'Skladby') {
+	$c->fetch(array(
+		'where' => array(
+			'id_Alba' => $id
 		),
 		'limit' => 50
 	));
