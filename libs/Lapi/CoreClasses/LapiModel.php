@@ -181,6 +181,9 @@ class LapiModel {
 
 		if ($this->isNew()) {
 			$rt = !!$app->db->insert($this->db_table, $this->attributes);
+			if (!$this->getId()) {
+				$this->setId($app->db->mysqli->insert_id);
+			}
 		} else {
 			$rt = !!$app->db->update($this->db_table, $this->attributes, array(
 				'where' => array(

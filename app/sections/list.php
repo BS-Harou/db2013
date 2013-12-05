@@ -8,6 +8,7 @@
 header('Content-Type: application/json; charset=utf-8');
 
 $collection = $url->params[0];
+$id = $url->params[1];
 
 $names = array('Uzivatele', 'Skupiny', 'Pisnicky', 'Alba', 'Clenove', 'Vydavatele');
 
@@ -19,8 +20,18 @@ if (!in_array($collection, $names)) {
 require_once($app->dirModels . '/' . $collection . '.php');
 
 $c = new $collection();
-$c->fetch(array(
-	'limit' => 50
-));
+
+if ($collection == 'Alba') {
+	$c->fetch(array(
+		'where' => array(
+			'id_Skupiny' => $id
+		),
+		'limit' => 50
+	));
+} else {
+	$c->fetch(array(
+		'limit' => 50
+	));
+}
 
 echo $c->toJSON();
