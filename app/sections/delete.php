@@ -4,7 +4,7 @@
 $collection = $url->params[0];
 $id = $url->params[1];
 
-$names = array('Uzivatele', 'Skupiny', 'Skladby', 'Alba', 'Clenove', 'Vydavatele');
+$names = array('Uzivatele', 'Skupiny', 'Zadosti', 'Skladby', 'Alba', 'Clenove', 'Vydavatele');
 
 if (!in_array($collection, $names) || !$id) {
 	$app->redirect('admin/' . $collection);

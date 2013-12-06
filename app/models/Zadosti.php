@@ -6,9 +6,9 @@ class Zadost extends LapiModel {
 	public $defaults = array(
 		'id_Zadosti'    =>  NULL,
 		'datum'  => '1.1.1990',
-		'zpracováno' => false,
+		'zpracovano' => false,
 		'schvaleno'  => false,
-		'Uzivatele_id_Uzivatele'  => 0
+		'id_Uzivatele'  => 0
 	);
 	public $db_table = 'Zadosti';
 }

@@ -113,6 +113,9 @@
 		<a id="nav-musicians" data-collection="Clenove">Hudebníci</a>
 		<a id="nav-publishers" data-collection="Vydavatele">Vydavatelství</a>
 		<a id="nav-users" data-collection="Uzivatele">Uživatelé</a>
+		{{#is_admin}}
+			<a id="nav-requests" data-collection="Zadosti">Žádosti</a>
+		{{/is_admin}}
 	</div>
 </nav>
 <header>
@@ -175,6 +178,16 @@
 		<div class="item-delete button" data-id="<%= id_Vydavatel %>">Smazat</div>
 	</div>
 </script>
+
+
+<script type="text/template" id="template-item-zadosti">
+	<div class="list-item">
+		<div class="item-name"><%= datum %></div>
+		<div class="item-edit button">Schvalit</div>
+		<div class="item-delete button" data-id="<%= id_Zadosti %>">Smazat</div>
+	</div>
+</script>
+
 
 <!-- TEMPLATE: CREATE BAND -->
 

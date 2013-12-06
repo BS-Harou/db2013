@@ -12,12 +12,16 @@
 <main>
 	<div class="success_msg">{{success_msg}}</div>
 	<div class="error_msg">{{error_msg}}</div>
-	<form>
+	{{#nezazadano}}
+	<form method="POST">
 		<div class="form-name">Zažádat o moderátorská práva:</div>
+
+		<input type="hidden" name="action" value="ask_for_permissions" />
 		<div class="form-buttons">
 			<input type="submit" value="Zažádat" class="button">
 		</div>
 	</form>
+	{{/nezazadano}}
 
 	<form method="POST">
 		<div class="form-name">Změnit heslo</div>

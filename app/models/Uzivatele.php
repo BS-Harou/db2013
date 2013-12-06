@@ -12,7 +12,8 @@ class Uzivatel extends LapiModel {
 		'icq'           => '',
 		'heslo'         => '',
 		/*'datum_registrace' => NULL, // commented to get current timestamp */
-		'mail'          => ''
+		'mail'          => '',
+		'id_Role'       => 1 // 1 = basic user
 	);
 
 	public $db_table = 'Uzivatele';
@@ -20,10 +21,6 @@ class Uzivatel extends LapiModel {
 	public function zmenitHeslo($oldPass, $newPass, $confirmPass) {
 		if ($newPass != $confirmPass) return false;
 		if (strlen($newPass) < 5) return false;
-
-
-		
-
 		
 		$oldPass = md5($oldPass);
 		if ($oldPass != $this->get('heslo')) return false;
@@ -35,11 +32,11 @@ class Uzivatel extends LapiModel {
 
 	public function zazadatModPrava() {
 		$novaZadost = new Zadost(array(
-			'Uzivatele_id_Uzivatele' => $this->get('id'),
-			'datum' => date('dd.mm.yy')
+			'id_Uzivatele' => $this->get('id_Uzivatele'),
+			'datum' => date('c')
 		));
 
-		$novaZadost->save();
+		return $novaZadost->save();
 	}
 }
 
