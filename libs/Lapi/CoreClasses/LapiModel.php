@@ -10,36 +10,42 @@
 class LapiModel {
 	/**
 	 * Asociativní pole jednotlivých atributů. Všechny změny by se měli dělat pomocí metody set.
+	 * @property attributes
 	 * @type Array
 	 */
 	public $attributes = array();
 
 	/**
 	 * Název sloupce, který slouží jako PRIMARY KEY
+	 * @property idAttribute
 	 * @type String
 	 */
 	public $idAttribute = 'id';
 
 	/**
 	 * Výchozí hodnoty atributů, která se nastaví při vytvoření nového modelu.
+	 * @property defaults
 	 * @type Array
 	 */
 	public $defaults = array();
 
 	/**
 	 * Speciální ID které se nastaví ihned při vytvoření modelu bez toho aby byl model uložený do databáze.
+	 * @property cid
 	 * @type String
 	 */
 	public $cid = '';
 
 	/**
 	 * Tuto proměnnou nastavuje metoda validate na chybovou hlášku, pokud není model validní
+	 * @property validationError
 	 * @type String
 	 */
 	public $validationError = '';
 
 	/**
 	 * Název tabulky ke které model patří
+	 * @property db_table
 	 * @type String
 	 * @example 'users'
 	 */
@@ -47,6 +53,8 @@ class LapiModel {
 
 	/**
 	 * Speciální interní proměnná, která se používá k vygenerování cid
+	 * @property _idCounter
+	 * @static
 	 */
 	public static $_idCounter = 0;
 
@@ -72,6 +80,8 @@ class LapiModel {
 
 	/**
 	 * Statická metoda, která vygeneruje nové cid
+	 * @method uniqueId
+	 * @static
 	 * @param $prefix {String} Normálně se generují hodnoty od 1 do n. Pefix umožňuje před číslo vložit nějaký řětezec (m1-mn)
 	 * @return String
 	 */
@@ -82,6 +92,7 @@ class LapiModel {
 
 	/**
 	 * Pokud modelu chybí nějaký atribut, který je definovaný v defaults, tak se použije hodnota nastavená v defaults.
+	 * @method fillDefaults
 	 */
 	public function fillDefaults() {
 		foreach ($this->defaults as $key => $value) {
@@ -93,6 +104,7 @@ class LapiModel {
 
 	/**
 	 * Získá hodnotu atributu
+	 * @method get
 	 * @param $index {String} Název atributu (index asoc. pole atributů)
 	 * @example $model->get('name') => 'Jan Novak'
 	 * @return Any
@@ -103,6 +115,7 @@ class LapiModel {
 
 	/**
 	 * Získá hodnotu atributu a převede všechny html tagy na řetězce
+	 * @method escape
 	 * @param $index {String} Název atributu
 	 * @example $model->escape('popis') => '&lt;b&gt;tucny text&lt;/b&gt;'
 	 * @return String
@@ -113,6 +126,7 @@ class LapiModel {
 
 	/**
 	 * Nastaví hodnotu atributu
+	 * @method set
 	 * @param $index {String} Název atributu
 	 * @param $value {String} Hodnota atributu
 	 * @example $model->set('name', 'Jan Novak')
@@ -124,6 +138,7 @@ class LapiModel {
 
 	/**
 	 * Odstraní atribut
+	 * @method remove
 	 * @param $index {String} Název atributu
 	 */
 	public function remove($index) {
@@ -132,6 +147,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí true nebo false podle toho zda model má daný atribut
+	 * @method has
 	 * @param $index {String} Název atributu
 	 * @return Bool
 	 */
@@ -141,6 +157,7 @@ class LapiModel {
 
 	/**
 	 * Odstraní všechny atributy
+	 * @method clear
 	 */
 	public function clear() {
 		$this->attributes = array();
@@ -148,6 +165,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @method getId
 	 * @return Any
 	 */
 	public function getId() {
@@ -156,6 +174,7 @@ class LapiModel {
 
 	/**
 	 * Nastaví hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @method setId
 	 * @param $value {Any} Hodnota
 	 * @return Any
 	 */
@@ -167,6 +186,7 @@ class LapiModel {
 	 * Uloží model do databáze.
 	 * Pokud id modelu v databázi neexistuje vytvoří se nový řádek.
 	 * Pokud id modelu v databázi už existuje, tak se aktualizuje řádek s daným id.
+	 * @method save
 	 * @return Bool
 	 * @throws
 	 */
@@ -203,6 +223,7 @@ class LapiModel {
 
 	/**
 	 * Uloží do modelu data z databáze
+	 * @method fetch
 	 * @return Bool
 	 */
 	public function fetch() {
@@ -236,6 +257,7 @@ class LapiModel {
 
 	/**
 	 * Odstraní model z databáze
+	 * @method destroy
 	 * @return Bool
 	 * @throws
 	 */
@@ -268,6 +290,7 @@ class LapiModel {
 	 * Funkce, kterou můžou přepsat třídy dědící z této.
 	 * Funkce buď vrátí nulu, jako že je vše v přoádku. Nebo řetězec obsahující chybovou zprávu.
 	 * Tuto funkci využívá metoda isValid
+	 * @method validate
 	 * @return String|Integer
 	 */
 	public function validate() {
@@ -277,6 +300,7 @@ class LapiModel {
 	/**
 	 * Zkontroluje zda je model validní.
 	 * Pokud není přepsaná metoda validate, tak je model validní vždy
+	 * @method isValid
 	 * @return Bool
 	 * @example if ( !$model->isValid() ) echo $model->validationError
 	 */
@@ -289,6 +313,7 @@ class LapiModel {
 	 * Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse
 	 * a tak data změnit dřív než se uloží do modelu.
 	 * @param $store {Array|Object} Asoc. pole nebo objekt obsahující data z databáze
+	 * @method parse
 	 * @return Array|Object
 	 */
 	public function parse($store) {
@@ -300,6 +325,7 @@ class LapiModel {
 
 	/**
 	 * Zjistí, jestli je model už v databázi
+	 * @method isNew
 	 * @return Bool
 	 */
 	public function isNew() {
@@ -322,6 +348,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí pole pouze specifikovaných atributů
+	 * @method pick
 	 * @param $arr {Array} Pole názvů atributů, která chceme
 	 * @return Array
 	 * @example $model->pick(array('name', 'age')) => array('name' => 'Jan Novak', 'age' => 27)
@@ -340,6 +367,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí pole všech atribůtů, kromě těch které jsou specifikovány
+	 * @method omit
 	 * @param $arr {Array} Pole názvů atributů, která nechceme
 	 * @return Array
 	 * @example $model->omit(array('name')) => array('age' => 27, 'mail' => 'jan.novak@mail.cz')
@@ -359,6 +387,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí pole názvů atributů
+	 * @method keys
 	 * @return Array
 	 * @example $model->keys() => array('name', 'age', 'mail')
 	 */
@@ -372,6 +401,7 @@ class LapiModel {
 
 	/**
 	 * Vráti pole hodnot atributů
+	 * @method values
 	 * @return Array
 	 * @example $model->keys() => array('Jan Novak', '27', 'jan.novak@mail.cz')
 	 */
@@ -385,6 +415,7 @@ class LapiModel {
 
 	/**
 	 * Vrátí vícerozměrné pole atributů uspořadaných do dvojic název/hodnota
+	 * @method pairs
 	 * @return Array
 	 * @example $model->pairs() => array(array('name', 'Jan Novak'), array('age', 27), array('mail', 'jan.novak@mail.cz'))
 	 */

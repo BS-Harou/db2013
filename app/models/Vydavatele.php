@@ -7,9 +7,24 @@
 class Vydavatel extends LapiModel {
 	public $idAttribute = 'id_Vydavatel';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Vydavatel
+		 */
 		'id_Vydavatel'     => NULL,
+
+		/** 
+		 * @attribute nazev
+		 */
 		'nazev'            => '',
+
+		/** 
+		 * @attribute popis
+		 */
 		'popis'            => '',
+
+		/** 
+		 * @attribute datum_zalozeni
+		 */
 		'datum_zalozeni'   => ''
 	);
 

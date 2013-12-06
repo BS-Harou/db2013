@@ -51,6 +51,8 @@ class LapiApplication {
 
 	/**
 	 * Vrátí base_url aplikace
+	 * @method getRealRoot
+	 * @return String
 	 */
 	public function getRealRoot() {
 		$r = $_SERVER['PHP_SELF'];
@@ -61,7 +63,7 @@ class LapiApplication {
 
 	/**
 	 * Přesměruje klienta do jiné sekce
-	 * @type String
+	 * @method redirect
 	 */
 	public function redirect($section) {
 		header('Location: ' . $this->getRealRoot() . $section);

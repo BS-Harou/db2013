@@ -9,21 +9,59 @@ require_once($app->dirModels . '/Zadosti.php');
 class Uzivatel extends LapiModel {
 	public $idAttribute = 'id_Uzivatele';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Uzivatele
+		 */
 		'id_Uzivatele'  => NULL,
+
+		/** 
+		 * @attribute nickname
+		 */
 		'nickname'      => NULL,
+
+		/** 
+		 * @attribute jmeno
+		 */
 		'jmeno'         => '',
+
+		/** 
+		 * @attribute prijmeni
+		 */
 		'prijmeni'      => '',
+
+		/** 
+		 * @attribute icq
+		 */
 		'icq'           => '',
+
+		/** 
+		 * @attribute heslo
+		 */
 		'heslo'         => '',
-		/*'datum_registrace' => NULL, // commented to get current timestamp */
+
+		/**
+		 * commented to get current timestamp
+		 * @attribute datum_registrace
+		 */
+		/*'datum_registrace' => NULL,  */
+
+		/** 
+		 * @attribute mail
+		 */
 		'mail'          => '',
-		'id_Role'       => 1 // 1 = basic user
+
+		/**
+		 * 1 = basic user, 2 = mod., 3 = admin
+		 * @attribute id_Role
+		 */
+		'id_Role'       => 1 
 	);
 
 	public $db_table = 'Uzivatele';
 
 	/**
 	 * Zmeni heslo na nove (je-li vse v poradku)
+	 * @method zmenitHeslo
 	 * @param {String} Stare heslo
 	 * @param {String} Nove heslo
 	 * @param {String} Potvrzeni noveho hesla
@@ -43,6 +81,7 @@ class Uzivatel extends LapiModel {
 
 	/**
 	 * Prida zadost o mod. prava. Administrator ji musi jeste potvrdit.
+	 * @method zazadatModPrava
 	 * @return Bool
 	 */
 	public function zazadatModPrava() {
@@ -56,6 +95,7 @@ class Uzivatel extends LapiModel {
 
 	/**
 	 * Nastavi roli uzivatele zpet na bezneho uzivatele
+	 * @method vratitRoliUzivatele
 	 * @return Bool
 	 */
 	public function vratitRoliUzivatele() {

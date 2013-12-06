@@ -7,7 +7,16 @@
 class Nastroj extends LapiModel {
 	public $idAttribute = 'id_Alba';
 	public $defaults = array(
+		/** 
+		 * 
+		 * @attribute id_Nastroje
+		 */
 		'id_Nastroje'      => NULL,
+
+		/**
+		 * 
+		 * @attribute id_Nazev
+		 */
 		'nazev'        => ''
 	);
 

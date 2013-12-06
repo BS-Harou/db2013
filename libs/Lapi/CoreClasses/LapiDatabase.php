@@ -8,36 +8,42 @@ class LapiDatabase {
 
 	/**
 	 * Přihlašovací jméno k databázi
+	 * @property username
 	 * @type String
 	 */
 	private $username;
 
 	/**
 	 * Přihlašovací heslo k databázi
+	 * @property password
 	 * @type String
 	 */
 	private $password;
 
 	/**
 	 * database host
+	 * @property host
 	 * @type String
 	 */
 	private $host;
 
 	/**
 	 * Název databáze
+	 * @property database
 	 * @type String
 	 */
 	private $database;
 
 	/**
 	 * Reference na MySQLi objekt
+	 * @property mysqli
 	 * @type MySQLI
 	 */
 	public  $mysqli;
 
 	/**
 	 * Info. jestli jsme připojeni k databázi
+	 * @property isConnected
 	 * @type String
 	 */
 	public  $isConnected = false;
@@ -58,6 +64,7 @@ class LapiDatabase {
 
 	/**
 	 * Obecný dotaz na databázi
+	 * @method query
 	 * @param $q {String} Dotaz
 	 * @return Object (MySQLi result)
 	 * @example $db->query('SELECT * FROM tabulka')
@@ -71,6 +78,7 @@ class LapiDatabase {
 
 	/**
 	 * SELECT dotaz na databázi
+	 * @method select
 	 * @param $table {String} Název tabulky
 	 * @param $attr {Array} Parametry
 	 * @return Object (MySQLi result)
@@ -88,6 +96,7 @@ class LapiDatabase {
 
 	/**
 	 * DELETE dotaz na databázi
+	 * @method delete
 	 * @param $table {String} Název tabulky
 	 * @param $attr {Array} Parametry
 	 * @return Object (MySQLi result)
@@ -102,6 +111,7 @@ class LapiDatabase {
 
 	/**
 	 * INSERT dotaz na databázi
+	 * @method insert
 	 * @param $table {String} Název tabulky
 	 * @param $attr {Array} Parametry
 	 * @return Object (MySQLi result)
@@ -124,6 +134,7 @@ class LapiDatabase {
 
 	/**
 	 * UPDATE dotaz na databázi
+	 * @method update
 	 * @param $table {String} Název tabulky
 	 * @param $attr {Array} Parametry
 	 * @return Object (MySQLi result)
@@ -146,6 +157,7 @@ class LapiDatabase {
 
 	/**
 	 * Debugovací funkce která vypíše info o mysqli objektu
+	 * @method dump
 	 */
 	public function dump() {
 		var_dump($this->mysqli);
@@ -153,6 +165,7 @@ class LapiDatabase {
 
 	/**
 	 * Escapování řetězce
+	 * @method escape
 	 * @param $str {String} Řetězec který má být escpaován
 	 * @return String
 	 */
@@ -163,6 +176,7 @@ class LapiDatabase {
 	/**
 	 * K db. se nepřipojíme hned při vytovření instance LapiDatabase, ale až při prvním dotazu.
 	 * Tato funkce se stará o skutečné připojení k db
+	 * @method realConnect 
 	 */
 	private function realConnect() {
 		$this->mysqli = new Mysqli($this->host, $this->username, $this->password, $this->database);
@@ -175,6 +189,7 @@ class LapiDatabase {
 	 * Pokud je to ascc. pole, tak např array('where' => array('name' => 'Jan Novak', 'age' => 27))
 	 * se převede na WHERE `name`='Jan Novak' AND `age`='27'
 	 * Funkce se navíc postará o to, aby všechny vstupy byly escapováný (v případě asoc. pole)
+	 * @method  parseWhere
 	 */
 	static function parseWhere($arr) {
 		if (is_string($arr)) {

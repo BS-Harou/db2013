@@ -7,6 +7,7 @@
 class LapiURL {
 	/**
 	 * Sekce stránky
+	 * @property section
 	 * @type String
 	 * @example ...cz/admin/users/15 => sekce = admin
 	 */
@@ -14,13 +15,15 @@ class LapiURL {
 
 	/**
 	 * Zbytek url (mimo query string) rozdělený podle /
+	 * @property params
 	 * @type Array
 	 * @example ...cz/admin/users/15 => params = array('users', '15')
 	 */
 	public $params = array();
 
 	/**
-	 * QUery string uložený do asociativního pole
+	 * Query string uložený do asociativního pole
+	 * @property qs
 	 * @type Array
 	 * @example ...cz/admin?subsection=users&count=15 => qs = array('subsection' => 'users', 'count' => 15)
 	 */
@@ -28,6 +31,7 @@ class LapiURL {
 
 	/**
 	 * Hash
+	 * @property hash
 	 * @type String
 	 * @example ...cz/admin#xyz => hash = xyz
 	 */
@@ -63,6 +67,8 @@ class LapiURL {
 
 	/**
 	 * Statická funkce, která parsuje query string
+	 * @method parseQueryString
+	 * @static
 	 * @param $str {String} query string
 	 * @example LapiURL::parseQueryString('abc=1&xyz=2') => 'array('abc' => 1, 'xyz' => 2)
 	 */

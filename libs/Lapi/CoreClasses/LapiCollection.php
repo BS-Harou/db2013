@@ -8,18 +8,21 @@ class LapiCollection {
 
 	/**
 	 * Název třídy modelu
+	 * @property model
 	 * @type String
 	 */
 	public $model = 'LapiModel';
 
 	/**
 	 * Pole všech modelů v kolekci
+	 * @property models
 	 * @type Array
 	 */
 	public $models = array();
 
 	/**
 	 * Název tabulky ke které kolekce patří
+	 * @property db_table
 	 * @type String
 	 * @example 'users'
 	 */
@@ -41,6 +44,7 @@ class LapiCollection {
 
 	/**
 	 * Přidá model do kolekce
+	 * @method add
 	 * @param $obj {LapiModel|Array} Model či pole modelů, které se mají přidat do kolekce
 	 */
 	public function add($obj) {
@@ -53,6 +57,7 @@ class LapiCollection {
 
 	/**
 	 * Odebere model z kolekce
+	 * @method remove
 	 * @param $obj {LapiModel|Array} Model či pole modelů, které se mají z kolekce odebrat
 	 */
 	public function remove($obj) {
@@ -73,6 +78,7 @@ class LapiCollection {
 
 	/**
 	 * Odebere všechny předchozí modely z kolekce a přidá nové
+	 * @method reset
 	 * @param $arr {Array} Pole nových modelů
 	 */
 	public function reset($arr) {
@@ -84,6 +90,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí model z kolekce podle jeho id nebo cid
+	 * @method get
 	 * @param $id {String} id nebo cid modelu
 	 * @return LapiModel
 	 */
@@ -98,6 +105,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí model na daném indexu
+	 * @method at
 	 * @param $index {Integer} Index modelu
 	 * @return LapiModel
 	 */
@@ -108,6 +116,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí počet modelů v kolekci
+	 * @method length
 	 * @return Integer
 	 */
 	public function length() {
@@ -117,6 +126,7 @@ class LapiCollection {
 	/**
 	 * Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse
 	 * a tak data změnit dřív než se uloží do modelů.
+	 * @method parse
 	 * @param $arr {Array} Asoc. pole obsahující data z databáze
 	 * @return Array
 	 */
@@ -126,6 +136,7 @@ class LapiCollection {
 
 	/**
 	 * Získá modely z databáze
+	 * @method fetch
 	 * @param $attr {Array} Parametry pro filtrovaní
 	 * @example $collection->fetch( array('where' => 'age < 20') );
 	 */
@@ -161,6 +172,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí počet všech řádků v databázi po zavolání fetch s limitem
+	 * @method allRowsCount
 	 * @return Integer
 	 */
 	public function allRowsCount() {
@@ -183,6 +195,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí pole hodnot daného atributu
+	 * @method pluck
 	 * @param $str {String} Název atributu
 	 * @return Array
 	 * @example $collection->pluck('age') => array(27, 29, 30, 14, 18)
@@ -197,6 +210,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí pole modelů, které odpovídají zadaným parametrům
+	 * @method where
 	 * @param $attrs {Array} Parametry.
 	 * @return Array
 	 * @example $collection->where(array('name' => 'Jan Novak')) => array([LapiModel Object])
@@ -216,6 +230,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí první model, které odpovídá zadaným parametrům
+	 * @method findWhere
 	 * @param $attrs {Array} Parametry.
 	 * @return LapiModel
 	 * @example $collection->findWhere(array('name' => 'Jan Novak')) => [LapiModel Object]
@@ -234,6 +249,7 @@ class LapiCollection {
 
 	/**
 	 * Vytvoří nový model, přidá ho do kolekce a uloží do databáze
+	 * @method create
 	 * @param $attrs {Array} Asoc. pole atributů
 	 * @param $options {Array} Pole nastavení. Zatím jen položka 'wait', která pokud je true a model se nepodaří uložit do db, tak se nepřidá ani do kolekce
 	 * @return LapiModel
@@ -259,6 +275,7 @@ class LapiCollection {
 
 	/**
 	 * Vrátí JSON řetězec kolekce
+	 * @method toJSON
 	 * @return String
 	 */
 	public function toJSON() {

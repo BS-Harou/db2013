@@ -11,11 +11,34 @@ require_once($app->dirModels . '/Alba.php');
 class Skupina extends LapiModel {
 	public $idAttribute = 'id_Skupiny';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Skupiny
+		 */
 		'id_Skupiny'    => NULL,
+
+		/** 
+		 * @attribute nazev
+		 */
 		'nazev'         => NULL,
+
+		/** 
+		 * @attribute rok_zalozeni
+		 */
 		'rok_zalozeni'  => 0,
+
+		/** 
+		 * @attribute historie
+		 */
 		'historie'      => '',
+
+		/** 
+		 * @attribute www
+		 */
 		'www'           => '',
+
+		/** 
+		 * @attribute foto
+		 */
 		'foto'          => ''
 	);
 
@@ -42,6 +65,7 @@ class Skupina extends LapiModel {
 
 	/**
 	 * Prida album skupine
+	 * @method pridatAlbum
 	 * @param {int} ID alba
 	 * @return Bool
 	 */
@@ -51,6 +75,7 @@ class Skupina extends LapiModel {
 
 	/**
 	 * Odebere album skupine
+	 * @method odebratAlbum
 	 * @param {int} ID alba
 	 * @return Bool
 	 */
@@ -60,6 +85,7 @@ class Skupina extends LapiModel {
 
 	/**
      * Vrati kolekci alb, ktera patri skupine
+     * @method seznamAlb
      * @return Alba
 	 */
 	public function seznamAlb() {

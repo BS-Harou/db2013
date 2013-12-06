@@ -10,13 +10,44 @@ require_once($app->dirModels . '/ClenoveJoinNastroje.php');
 class Clen extends LapiModel {
 	public $idAttribute = 'id_Clenove';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Clenove
+		 */
 		'id_Clenove'     => NULL,
+
+		/** 
+		 * @attribute jmeno
+		 */
 		'jmeno'          => '',
+
+		/** 
+		 * @attribute prijmeni
+		 */
 		'prijmeni'       => '',
+
+		/** 
+		 * @attribute datum_narozeni
+		 */
 		'datum_narozeni' => '',
+
+		/** 
+		 * @attribute datum_umrti
+		 */
 		'datum_umrti'    => '',
+
+		/** 
+		 * @attribute misto_narozeni
+		 */
 		'misto_narozeni' => '',
+
+		/** 
+		 * @attribute historie
+		 */
 		'historie'       => '',
+
+		/** 
+		 * @attribute www
+		 */
 		'www'            => ''
 	);
 
@@ -24,6 +55,7 @@ class Clen extends LapiModel {
 
 	/**
 	 * Prida nastroj k clenovi
+	 * @method pridatNastroj
 	 * @param {Nastroj|String|Int} ID, nazev nebo model nastroje
 	 * @return Bool
 	 */

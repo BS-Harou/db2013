@@ -10,12 +10,39 @@ require_once($app->dirModels . '/Vydavatele.php');
 class Album extends LapiModel {
 	public $idAttribute = 'id_Alba';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Alba
+		 */
 		'id_Alba'      => NULL,
+
+		/** 
+		 * @attribute nazev
+		 */
 		'nazev'        => '',
+
+		/** 
+		 * @attribute obal
+		 */
 		'obal'         => '',
+
+		/** 
+		 * @attribute datum_vydani
+		 */
 		'datum_vydani' => '',
+
+		/** 
+		 * @attribute delka_alba
+		 */
 		'delka_alba'   => '',
+
+		/** 
+		 * @attribute id_Skupiny
+		 */
 		'id_Skupiny'   => NULL,
+
+		/** 
+		 * @attribute id_Vydavatel
+		 */
 		'id_Vydavatel' => NULL
 	);
 
@@ -23,6 +50,7 @@ class Album extends LapiModel {
 
 	/**
 	 * Vrati model vydavatele daneho alba
+	 * @method vydavatelAlba
 	 * @return Vydavatel
 	 */
 	public function vydavatelAlba() {
@@ -43,6 +71,7 @@ class Album extends LapiModel {
 
 	/**
 	 * Zmeni ID skupiny
+	 * @method priraditDoJineSkupiny
 	 * @param {Skupina|Int} ID nebo model skupiny
 	 * @return Bool
 	 */
@@ -60,6 +89,7 @@ class Album extends LapiModel {
 
 	/**
 	 * Zmeni ID vydavatele
+	 * @method zadatJinehoVydavatele
 	 * @param {Vydavatel|Int} ID nebo model vydavatele
 	 * @return Bool
 	 */

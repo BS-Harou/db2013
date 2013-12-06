@@ -7,11 +7,34 @@
 class Skladba extends LapiModel {
 	public $idAttribute = 'id_Skladby';
 	public $defaults = array(
+		/** 
+		 * @attribute id_Skladby
+		 */
 		'id_Skladby'   => NULL,
+
+		/** 
+		 * @attribute nazev
+		 */
 		'nazev'        => '',
+
+		/** 
+		 * @attribute text
+		 */
 		'text'         => '',
+
+		/** 
+		 * @attribute youtube
+		 */
 		'youtube'      => '',
+
+		/** 
+		 * @attribute delka
+		 */
 		'delka'        => '',
+
+		/** 
+		 * @attribute id_Alba
+		 */
 		'id_Alba'      => NULL,
 	);
 
@@ -19,6 +42,7 @@ class Skladba extends LapiModel {
 
 	/**
 	 * Nastavi id alba
+	 * @method pridatSkladbuKAlbu
 	 * @param {Album|Int} ID nebo model alba
 	 * @return Bool
 	 */
