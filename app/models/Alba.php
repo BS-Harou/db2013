@@ -16,6 +16,10 @@ class Album extends LapiModel {
 
 	public $db_table = 'Alba';
 
+	/**
+	 * Vrati model vydavatele daneho alba
+	 * @return Vydavatel
+	 */
 	public function vydavatelAlba() {
 		$id = $this->get('id_Vydavatel');
 		if (!$id || $id < 1) {
@@ -30,6 +34,40 @@ class Album extends LapiModel {
 		$vydavatel->fetch();
 
 		return $vydavatel;
+	}
+
+	/**
+	 * Zmeni ID skupiny
+	 * @param {Skupina|Int} ID nebo model skupiny
+	 * @return Bool
+	 */
+	public function priraditDoJineSkupiny($skupina) {
+		if (is_numeric($skupina)) {
+			$this->set('id_Skupiny', $skupina);	
+		} else if ($skupina instanceof LapiModel) {
+			$this->set('id_Skupiny', $skupina->getId());
+		} else {
+			return false;
+		}
+		
+		return $this->save();
+	}
+
+	/**
+	 * Zmeni ID vydavatele
+	 * @param {Vydavatel|Int} ID nebo model vydavatele
+	 * @return Bool
+	 */
+	public function zadatJinehoVydavatele($vydavatel) {
+		if (is_numeric($vydavatel)) {
+			$this->set('id_Vydavatel', $vydavatel);	
+		} else if ($vydavatel instanceof LapiModel) {
+			$this->set('id_Vydavatel', $vydavatel->getId());
+		} else {
+			return false;
+		}
+		
+		return $this->save();
 	}
 
 	/*

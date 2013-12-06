@@ -18,6 +18,13 @@ class Uzivatel extends LapiModel {
 
 	public $db_table = 'Uzivatele';
 
+	/**
+	 * Zmeni heslo na nove (je-li vse v poradku)
+	 * @param {String} Stare heslo
+	 * @param {String} Nove heslo
+	 * @param {String} Potvrzeni noveho hesla
+	 * @return Bool
+	 */
 	public function zmenitHeslo($oldPass, $newPass, $confirmPass) {
 		if ($newPass != $confirmPass) return false;
 		if (strlen($newPass) < 5) return false;
@@ -30,6 +37,10 @@ class Uzivatel extends LapiModel {
 		return $this->save();
 	}
 
+	/**
+	 * Prida zadost o mod. prava. Administrator ji musi jeste potvrdit.
+	 * @return Bool
+	 */
 	public function zazadatModPrava() {
 		$novaZadost = new Zadost(array(
 			'id_Uzivatele' => $this->get('id_Uzivatele'),
@@ -37,6 +48,15 @@ class Uzivatel extends LapiModel {
 		));
 
 		return $novaZadost->save();
+	}
+
+	/**
+	 * Nastavi roli uzivatele zpet na bezneho uzivatele
+	 * @return Bool
+	 */
+	public function vratitRoliUzivatele() {
+		$this->set('id_Role', 1);
+		return $this->save();
 	}
 }
 
