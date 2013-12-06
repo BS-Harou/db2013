@@ -312,8 +312,15 @@ main {
 	height: 100%;
 	display: flex;
 	flex-flow: column;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
+	display: -moz-flex;
+	-moz-flex-direction: column;
+	-moz-flex-flow: column;
+	-moz-justify-content: center;
+	-moz-align-items: center;
 }
 
 .user-option {
@@ -321,6 +328,7 @@ main {
 	width: 2.3rem;
 	height: 2.3rem;
 	flex: 0 0 2.3rem;
+	-moz-flex: 0 0 2.3rem;
 }
 
 .o-fav {
