@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * Třída pro tvorbu modelů typu Zadost
+ * @class Zadost
+ */
 class Zadost extends LapiModel {
 	public $idAttribute = 'id_Zadosti';
 	public $defaults = array(
@@ -13,7 +16,10 @@ class Zadost extends LapiModel {
 	public $db_table = 'Zadosti';
 }
 
-
+/**
+ * Třída pro práci s modely typu Zadost
+ * @class Zadosti
+ */
 class Zadosti extends LapiCollection {
 	public $db_table = 'Zadosti';
 	public $model = 'Zadost';

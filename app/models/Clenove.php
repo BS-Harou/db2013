@@ -1,8 +1,12 @@
 <?php
 
-require_once($app->dirModels . '/Nastroj.php');
+require_once($app->dirModels . '/Nastroje.php');
 require_once($app->dirModels . '/ClenoveJoinNastroje.php');
 
+/**
+ * Třída pro tvorbu modelů typu Clen
+ * @class Clen
+ */
 class Clen extends LapiModel {
 	public $idAttribute = 'id_Clenove';
 	public $defaults = array(
@@ -60,7 +64,10 @@ class Clen extends LapiModel {
 	}
 }
 
-
+/**
+ * Třída pro práci s modely typu Clen
+ * @class Clenove
+ */
 class Clenove extends LapiCollection {
 	public $db_table = 'Clenove';
 	public $model = 'Clen';

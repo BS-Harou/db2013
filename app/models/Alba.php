@@ -2,6 +2,11 @@
 
 require_once($app->dirModels . '/Vydavatele.php');
 
+
+/**
+ * Třída pro tvorbu modelů typu Album
+ * @class Album
+ */
 class Album extends LapiModel {
 	public $idAttribute = 'id_Alba';
 	public $defaults = array(
@@ -84,7 +89,10 @@ class Album extends LapiModel {
 
 }
 
-
+/**
+ * Třída pro práci s modely typu Album
+ * @class Alba
+ */
 class Alba extends LapiCollection {
 	public $db_table = 'Alba';
 	public $model = 'Album';

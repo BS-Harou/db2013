@@ -4,6 +4,10 @@ require_once($app->dirModels . '/Clenove.php');
 require_once($app->dirModels . '/SkupinyJoinClenove.php');
 require_once($app->dirModels . '/Alba.php');
 
+/**
+ * Třída pro tvorbu modelů typu Skupina
+ * @class Skupina
+ */
 class Skupina extends LapiModel {
 	public $idAttribute = 'id_Skupiny';
 	public $defaults = array(
@@ -63,7 +67,10 @@ class Skupina extends LapiModel {
 	}
 }
 
-
+/**
+ * Třída pro práci s modely typu Skupina
+ * @class Skupiny
+ */
 class Skupiny extends LapiCollection {
 	public $db_table = 'Skupiny';
 	public $model = 'Skupina';

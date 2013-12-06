@@ -15,6 +15,9 @@ if (!in_array($collection, $names) || !$id) {
 require_once($app->dirModels . '/' . $collection . '.php');
 
 if ($id == 'all') {
+	/**
+	 * U Skladeb a Alb je treba odstranovat pouze pod spravnym ID!!!
+	 */
 	$app->db->query('DELETE * FROM `' + $collection + '`');
 } else {
 	$id = (int) $id;

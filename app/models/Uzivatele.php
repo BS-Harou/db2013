@@ -2,6 +2,10 @@
 
 require_once($app->dirModels . '/Zadosti.php');
 
+/**
+ * Třída pro tvorbu modelů typu Uzivatel
+ * @class Uzivatel
+ */
 class Uzivatel extends LapiModel {
 	public $idAttribute = 'id_Uzivatele';
 	public $defaults = array(
@@ -60,7 +64,10 @@ class Uzivatel extends LapiModel {
 	}
 }
 
-
+/**
+ * Třída pro práci s modely typu Uzivatel
+ * @class Uzivatele
+ */
 class Uzivatele extends LapiCollection {
 	public $db_table = 'Uzivatele';
 	public $model = 'Uzivatel';

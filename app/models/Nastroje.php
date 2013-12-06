@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Třída pro tvorbu modelů typu Nastroj
+ * @class Nastroj
+ */
 class Nastroj extends LapiModel {
 	public $idAttribute = 'id_Alba';
 	public $defaults = array(
@@ -11,7 +15,10 @@ class Nastroj extends LapiModel {
 
 }
 
-
+/**
+ * Třída pro práci s modely typu Nastroj
+ * @class Nastroje
+ */
 class Nastroje extends LapiCollection {
 	public $db_table = 'Nastroje';
 	public $model = 'Nastroj';

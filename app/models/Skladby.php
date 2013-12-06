@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Třída pro tvorbu modelů typu Skladba
+ * @class Skladba
+ */
 class Skladba extends LapiModel {
 	public $idAttribute = 'id_Skladby';
 	public $defaults = array(
@@ -32,7 +36,10 @@ class Skladba extends LapiModel {
 
 }
 
-
+/**
+ * Třída pro práci s modely typu Skladba
+ * @class Skladby
+ */
 class Skladby extends LapiCollection {
 	public $db_table = 'Skladby';
 	public $model = 'Skladba';
