@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>libs\Lapi\CoreClasses\LapiModel.php</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Alba.html">Alba</a></li>
+            
+                <li><a href="../classes/Album.html">Album</a></li>
+            
+                <li><a href="../classes/Clen.html">Clen</a></li>
+            
+                <li><a href="../classes/ClenJoinNastroj.html">ClenJoinNastroj</a></li>
+            
+                <li><a href="../classes/Clenove.html">Clenove</a></li>
+            
+                <li><a href="../classes/ClenoveJoinSkupiny.html">ClenoveJoinSkupiny</a></li>
+            
+                <li><a href="../classes/DefaultParams.html">DefaultParams</a></li>
+            
+                <li><a href="../classes/LapiApplication.html">LapiApplication</a></li>
+            
+                <li><a href="../classes/LapiCollection.html">LapiCollection</a></li>
+            
+                <li><a href="../classes/LapiDatabase.html">LapiDatabase</a></li>
+            
+                <li><a href="../classes/LapiModel.html">LapiModel</a></li>
+            
+                <li><a href="../classes/LapiURL.html">LapiURL</a></li>
+            
+                <li><a href="../classes/Nastroj.html">Nastroj</a></li>
+            
+                <li><a href="../classes/Nastroje.html">Nastroje</a></li>
+            
+                <li><a href="../classes/Skladba.html">Skladba</a></li>
+            
+                <li><a href="../classes/Skladby.html">Skladby</a></li>
+            
+                <li><a href="../classes/Skupina.html">Skupina</a></li>
+            
+                <li><a href="../classes/SkupinaJoinClen.html">SkupinaJoinClen</a></li>
+            
+                <li><a href="../classes/Skupiny.html">Skupiny</a></li>
+            
+                <li><a href="../classes/SkupinyJoinClenove.html">SkupinyJoinClenove</a></li>
+            
+                <li><a href="../classes/Uzivatel.html">Uzivatel</a></li>
+            
+                <li><a href="../classes/Uzivatele.html">Uzivatele</a></li>
+            
+                <li><a href="../classes/Vydavatel.html">Vydavatel</a></li>
+            
+                <li><a href="../classes/Vydavatele.html">Vydavatele</a></li>
+            
+                <li><a href="../classes/Zadost.html">Zadost</a></li>
+            
+                <li><a href="../classes/Zadosti.html">Zadosti</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: libs\Lapi\CoreClasses\LapiModel.php</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&lt;?php
+
+/**
+ * Třída reprezentující jeden řádek z databáze.
+ * Jednotlivé buňky se získavají/nastavují přes metody get a set. ($model-&gt;set(&#x27;name&#x27;, &#x27;Jan Novak&#x27;))
+ * Aby se změny uložili do databáze je třeba zavolat metodu save ($model-&gt;save())
+ * Buňkám v modelu budeme říkat _atributy_
+ * @class LapiModel
+ */
+class LapiModel {
+	/**
+	 * Asociativní pole jednotlivých atributů. Všechny změny by se měli dělat pomocí metody set.
+	 * @property attributes
+	 * @type Array
+	 */
+	public $attributes = array();
+
+	/**
+	 * Název sloupce, který slouží jako PRIMARY KEY
+	 * @property idAttribute
+	 * @type String
+	 */
+	public $idAttribute = &#x27;id&#x27;;
+
+	/**
+	 * Výchozí hodnoty atributů, která se nastaví při vytvoření nového modelu.
+	 * @property defaults
+	 * @type Array
+	 */
+	public $defaults = array();
+
+	/**
+	 * Speciální ID které se nastaví ihned při vytvoření modelu bez toho aby byl model uložený do databáze.
+	 * @property cid
+	 * @type String
+	 */
+	public $cid = &#x27;&#x27;;
+
+	/**
+	 * Tuto proměnnou nastavuje metoda validate na chybovou hlášku, pokud není model validní
+	 * @property validationError
+	 * @type String
+	 */
+	public $validationError = &#x27;&#x27;;
+
+	/**
+	 * Název tabulky ke které model patří
+	 * @property db_table
+	 * @type String
+	 * @example &#x27;users&#x27;
+	 */
+	public $db_table;
+
+	/**
+	 * Speciální interní proměnná, která se používá k vygenerování cid
+	 * @property _idCounter
+	 * @static
+	 */
+	public static $_idCounter = 0;
+
+	/**
+	 * Konstruktor
+	 * @param $data {Array} Asociativní pole dat, která se mají modelu nastavit
+	 * @example new LapiModel(array(&#x27;name&#x27; =&gt; &#x27;Jan Novak&#x27;, &#x27;age&#x27; =&gt; 13));
+	 */
+	public function __construct($data=NULL) {
+		if ($data != NULL) {
+			foreach ($data as $key =&gt; $value) {
+				$this-&gt;set($key, $value);
+			}
+		}
+
+		$this-&gt;cid = self::uniqueId(&#x27;c&#x27;);
+		$this-&gt;fillDefaults();
+
+		if (method_exists($this, &#x27;initialize&#x27;)) {
+			$this-&gt;initialize();
+		}
+	}
+
+	/**
+	 * Statická metoda, která vygeneruje nové cid
+	 * @method uniqueId
+	 * @static
+	 * @param $prefix {String} Normálně se generují hodnoty od 1 do n. Pefix umožňuje před číslo vložit nějaký řětezec (m1-mn)
+	 * @return String
+	 */
+	private static function uniqueId($prefix) {
+		$id = ++self::$_idCounter . &#x27;&#x27;;
+		return $prefix ? $prefix . $id : $id;
+	}
+
+	/**
+	 * Pokud modelu chybí nějaký atribut, který je definovaný v defaults, tak se použije hodnota nastavená v defaults.
+	 * @method fillDefaults
+	 */
+	public function fillDefaults() {
+		foreach ($this-&gt;defaults as $key =&gt; $value) {
+			if (!$this-&gt;has($key)) {
+				$this-&gt;set($key, $value);
+			}
+		}
+	}
+
+	/**
+	 * Získá hodnotu atributu
+	 * @method get
+	 * @param $index {String} Název atributu (index asoc. pole atributů)
+	 * @example $model-&gt;get(&#x27;name&#x27;) =&gt; &#x27;Jan Novak&#x27;
+	 * @return Any
+	 */
+	public function get($index) {
+		return $this-&gt;has($index) ? $this-&gt;attributes[$index] : NULL;
+	}
+
+	/**
+	 * Získá hodnotu atributu a převede všechny html tagy na řetězce
+	 * @method escape
+	 * @param $index {String} Název atributu
+	 * @example $model-&gt;escape(&#x27;popis&#x27;) =&gt; &#x27;&amp;lt;b&amp;gt;tucny text&amp;lt;/b&amp;gt;&#x27;
+	 * @return String
+	 */
+	public function escape($index) {
+		return $this-&gt;has($index) ? htmlspecialchars($this-&gt;attributes[$index]) : NULL;
+	}
+
+	/**
+	 * Nastaví hodnotu atributu
+	 * @method set
+	 * @param $index {String} Název atributu
+	 * @param $value {String} Hodnota atributu
+	 * @example $model-&gt;set(&#x27;name&#x27;, &#x27;Jan Novak&#x27;)
+	 * @return Any
+	 */
+	public function set($index, $value) {
+		return $this-&gt;attributes[$index] = $value;
+	}
+
+	/**
+	 * Odstraní atribut
+	 * @method remove
+	 * @param $index {String} Název atributu
+	 */
+	public function remove($index) {
+		unset($this-&gt;attributes[$index]);
+	}
+
+	/**
+	 * Vrátí true nebo false podle toho zda model má daný atribut
+	 * @method has
+	 * @param $index {String} Název atributu
+	 * @return Bool
+	 */
+	public function has($index) {
+		return isset($this-&gt;attributes[$index]);
+	}
+
+	/**
+	 * Odstraní všechny atributy
+	 * @method clear
+	 */
+	public function clear() {
+		$this-&gt;attributes = array();
+	}
+
+	/**
+	 * Vrátí hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @method getId
+	 * @return Any
+	 */
+	public function getId() {
+		return $this-&gt;get($this-&gt;idAttribute);
+	}
+
+	/**
+	 * Nastaví hodnotu atributu, který reprezentuje buňku s PRIMARY KEY
+	 * @method setId
+	 * @param $value {Any} Hodnota
+	 * @return Any
+	 */
+	public function setId($value) {
+		return $this-&gt;set($this-&gt;idAttribute, $value);
+	}
+
+	/**
+	 * Uloží model do databáze.
+	 * Pokud id modelu v databázi neexistuje vytvoří se nový řádek.
+	 * Pokud id modelu v databázi už existuje, tak se aktualizuje řádek s daným id.
+	 * @method save
+	 * @return Bool
+	 * @throws
+	 */
+	public function save() {
+		global $app;
+		if (!isset($this-&gt;db_table)) {
+			$this-&gt;validationError = &#x27;MySQL error! Missing table name.&#x27;;
+			return false;
+		} else if (!$this-&gt;isValid()) {
+			return false;
+		}
+
+		if ($this-&gt;isNew()) {
+			$rt = !!$app-&gt;db-&gt;insert($this-&gt;db_table, $this-&gt;attributes);
+			if (!$this-&gt;getId()) {
+				$this-&gt;setId($app-&gt;db-&gt;mysqli-&gt;insert_id);
+			}
+		} else {
+			$rt = !!$app-&gt;db-&gt;update($this-&gt;db_table, $this-&gt;attributes, array(
+				&#x27;where&#x27; =&gt; array(
+					$this-&gt;idAttribute =&gt; $this-&gt;getId()
+				),
+				&#x27;limit&#x27; =&gt; &#x27;1&#x27;
+			));
+		}
+
+		if (!$rt) {
+			echo $app-&gt;db-&gt;mysqli-&gt;error . &#x27;\n\n&#x27;;
+			throw new Exception(&#x27;LapiModel Error. Can\&#x27;t save model to MySQL&#x27;);
+		}
+
+		return true;
+	}
+
+	/**
+	 * Uloží do modelu data z databáze
+	 * @method fetch
+	 * @return Bool
+	 */
+	public function fetch() {
+		global $app;
+		if (!isset($this-&gt;db_table)) {
+			return false;
+		}
+
+		$rt = $app-&gt;db-&gt;select($this-&gt;db_table, array(
+			&#x27;where&#x27; =&gt; array(
+				$this-&gt;idAttribute =&gt; $app-&gt;db-&gt;escape($this-&gt;getId())
+			),
+			&#x27;limit&#x27; =&gt; &#x27;1&#x27;
+		));
+
+
+		if (!$rt || $rt-&gt;num_rows == 0) {
+			return false;
+		}
+
+		$data = $rt-&gt;fetch_object();
+
+		$data = $this-&gt;parse($data);
+
+		foreach ($data as $key =&gt; $value) {
+			$this-&gt;set($key, $value);
+		}
+		
+		return true;
+	}
+
+	/**
+	 * Odstraní model z databáze
+	 * @method destroy
+	 * @return Bool
+	 * @throws
+	 */
+	public function destroy($attr=array()) {
+		global $app;
+		if (!isset($this-&gt;db_table) || !$this-&gt;getId()) {
+			return false;
+		}
+
+		$wh = array($this-&gt;idAttribute =&gt; $this-&gt;getId());
+		if (isset($attr[&#x27;where&#x27;]) &amp;&amp; is_array($attr[&#x27;where&#x27;])) {
+			$wh = array_merge($attr[&#x27;where&#x27;], $wh);
+		} else if (isset($attr[&#x27;where&#x27;]) &amp;&amp; is_string($attr[&#x27;where&#x27;]) &amp;&amp; strlen($attr[&#x27;where&#x27;]) &gt; 0) {
+			$wh = $attr[&#x27;where&#x27;] . &#x27; AND &#x60;&#x27; . $app-&gt;db-&gt;escape($this-&gt;idAttribute) . &#x27;&#x60;=&quot;&#x27; . $app-&gt;db-&gt;escape($this-&gt;getId()) . &#x27;&quot;&#x27;;
+		}
+
+		$rt = !!@$app-&gt;db-&gt;delete($this-&gt;db_table, array(
+			&#x27;where&#x27; =&gt; $wh,
+			&#x27;limit&#x27; =&gt; &#x27;1&#x27;
+		));
+
+		if (!$rt) {
+			throw new Exception(&#x27;LapiModel Error. Can\&#x27;t remove model from MySQL&#x27;);
+		}
+
+		return true;
+	}
+
+	/**
+	 * Funkce, kterou můžou přepsat třídy dědící z této.
+	 * Funkce buď vrátí nulu, jako že je vše v přoádku. Nebo řetězec obsahující chybovou zprávu.
+	 * Tuto funkci využívá metoda isValid
+	 * @method validate
+	 * @return String|Integer
+	 */
+	public function validate() {
+		return 0;
+	}
+
+	/**
+	 * Zkontroluje zda je model validní.
+	 * Pokud není přepsaná metoda validate, tak je model validní vždy
+	 * @method isValid
+	 * @return Bool
+	 * @example if ( !$model-&gt;isValid() ) echo $model-&gt;validationError
+	 */
+	public function isValid() {
+		$this-&gt;validationError = $this-&gt;validate();
+		return !$this-&gt;validationError;
+	}
+
+	/**
+	 * Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse
+	 * a tak data změnit dřív než se uloží do modelu.
+	 * @param $store {Array|Object} Asoc. pole nebo objekt obsahující data z databáze
+	 * @method parse
+	 * @return Array|Object
+	 */
+	public function parse($store) {
+		return $store;
+		/*foreach($store as $key =&gt; $value) {
+			$this-&gt;set($key, $value);
+		}*/
+	}
+
+	/**
+	 * Zjistí, jestli je model už v databázi
+	 * @method isNew
+	 * @return Bool
+	 */
+	public function isNew() {
+		global $app;
+		if ($this-&gt;getId() &amp;&amp; strlen($this-&gt;getId()) &gt; 0) {
+			if (!isset($this-&gt;db_table)) {
+				return false;
+			}
+
+			$rt = $app-&gt;db-&gt;select($this-&gt;db_table, array(
+				&#x27;where&#x27; =&gt; array(
+					$this-&gt;idAttribute =&gt; $this-&gt;getId()
+				),
+				&#x27;limit&#x27; =&gt; 1
+			));
+			return (!$rt || $rt-&gt;num_rows === 0);
+		} 
+		return true;
+	}
+
+	/**
+	 * Vrátí pole pouze specifikovaných atributů
+	 * @method pick
+	 * @param $arr {Array} Pole názvů atributů, která chceme
+	 * @return Array
+	 * @example $model-&gt;pick(array(&#x27;name&#x27;, &#x27;age&#x27;)) =&gt; array(&#x27;name&#x27; =&gt; &#x27;Jan Novak&#x27;, &#x27;age&#x27; =&gt; 27)
+	 */
+	public function pick($arr) {
+		$rt = array();
+
+		for ($i=0; $i &lt; count($arr); $i++) {
+			if ($this-&gt;has($arr[$i])) {
+				$rt[ $arr[$i] ] = $this-&gt;get( $arr[$i] );
+			}
+		}
+
+		return $rt;
+	}
+
+	/**
+	 * Vrátí pole všech atribůtů, kromě těch které jsou specifikovány
+	 * @method omit
+	 * @param $arr {Array} Pole názvů atributů, která nechceme
+	 * @return Array
+	 * @example $model-&gt;omit(array(&#x27;name&#x27;)) =&gt; array(&#x27;age&#x27; =&gt; 27, &#x27;mail&#x27; =&gt; &#x27;jan.novak@mail.cz&#x27;)
+	 */
+	public function omit($arr) {
+		$rt = array();
+		$keys = $this-&gt;keys();
+
+		for ($i=0; $i &lt; count($keys); $i++) {
+			if (!in_array($keys[$i], $arr)) {
+				$rt[ $keys[$i] ] = $this-&gt;get( $keys[$i] );
+			}
+		}
+
+		return $rt;
+	}
+
+	/**
+	 * Vrátí pole názvů atributů
+	 * @method keys
+	 * @return Array
+	 * @example $model-&gt;keys() =&gt; array(&#x27;name&#x27;, &#x27;age&#x27;, &#x27;mail&#x27;)
+	 */
+	public function keys() {
+		$rt = array();
+		foreach($this-&gt;attributes as $key =&gt; $value) {
+			$rt[] = $key;
+		}
+		return $rt;
+	}
+
+	/**
+	 * Vráti pole hodnot atributů
+	 * @method values
+	 * @return Array
+	 * @example $model-&gt;keys() =&gt; array(&#x27;Jan Novak&#x27;, &#x27;27&#x27;, &#x27;jan.novak@mail.cz&#x27;)
+	 */
+	public function values() {
+		$rt = array();
+		foreach($this-&gt;attributes as $key =&gt; $value) {
+			$rt[] = $value;
+		}
+		return $rt;
+	}
+
+	/**
+	 * Vrátí vícerozměrné pole atributů uspořadaných do dvojic název/hodnota
+	 * @method pairs
+	 * @return Array
+	 * @example $model-&gt;pairs() =&gt; array(array(&#x27;name&#x27;, &#x27;Jan Novak&#x27;), array(&#x27;age&#x27;, 27), array(&#x27;mail&#x27;, &#x27;jan.novak@mail.cz&#x27;))
+	 */
+	public function pairs() {
+		$rt = array();
+		foreach($this-&gt;attributes as $key =&gt; $value) {
+			$rt[] = array($key, $value);
+		}
+		return $rt;
+	}
+}
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

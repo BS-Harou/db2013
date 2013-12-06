@@ -1,0 +1,2276 @@
+{
+    "project": {},
+    "files": {
+        "app\\models\\Alba.php": {
+            "name": "app\\models\\Alba.php",
+            "modules": {},
+            "classes": {
+                "Album": 1,
+                "Alba": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Clenove.php": {
+            "name": "app\\models\\Clenove.php",
+            "modules": {},
+            "classes": {
+                "Clen": 1,
+                "Clenove": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\ClenoveJoinNastroje.php": {
+            "name": "app\\models\\ClenoveJoinNastroje.php",
+            "modules": {},
+            "classes": {
+                "ClenJoinNastroj": 1,
+                "ClenoveJoinSkupiny": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Nastroje.php": {
+            "name": "app\\models\\Nastroje.php",
+            "modules": {},
+            "classes": {
+                "Nastroj": 1,
+                "Nastroje": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Skladby.php": {
+            "name": "app\\models\\Skladby.php",
+            "modules": {},
+            "classes": {
+                "Skladba": 1,
+                "Skladby": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Skupiny.php": {
+            "name": "app\\models\\Skupiny.php",
+            "modules": {},
+            "classes": {
+                "Skupina": 1,
+                "Skupiny": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\SkupinyJoinClenove.php": {
+            "name": "app\\models\\SkupinyJoinClenove.php",
+            "modules": {},
+            "classes": {
+                "SkupinaJoinClen": 1,
+                "SkupinyJoinClenove": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Uzivatele.php": {
+            "name": "app\\models\\Uzivatele.php",
+            "modules": {},
+            "classes": {
+                "Uzivatel": 1,
+                "Uzivatele": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Vydavatele.php": {
+            "name": "app\\models\\Vydavatele.php",
+            "modules": {},
+            "classes": {
+                "Vydavatel": 1,
+                "Vydavatele": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "app\\models\\Zadosti.php": {
+            "name": "app\\models\\Zadosti.php",
+            "modules": {},
+            "classes": {
+                "Zadost": 1,
+                "Zadosti": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\DefaultParams.php": {
+            "name": "libs\\Lapi\\CoreClasses\\DefaultParams.php",
+            "modules": {},
+            "classes": {
+                "DefaultParams": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\LapiApplication.php": {
+            "name": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "modules": {},
+            "classes": {
+                "LapiApplication": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\LapiCollection.php": {
+            "name": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "modules": {},
+            "classes": {
+                "LapiCollection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\LapiDatabase.php": {
+            "name": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "modules": {},
+            "classes": {
+                "LapiDatabase": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\LapiModel.php": {
+            "name": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "modules": {},
+            "classes": {
+                "LapiModel": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\CoreClasses\\LapiURL.php": {
+            "name": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "modules": {},
+            "classes": {
+                "LapiURL": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\helpers.php": {
+            "name": "libs\\Lapi\\helpers.php",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "libs\\Lapi\\init.php": {
+            "name": "libs\\Lapi\\init.php",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Album": {
+            "name": "Album",
+            "shortname": "Album",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Alba.php",
+            "line": 6,
+            "description": "Třída pro tvorbu modelů typu Album"
+        },
+        "Alba": {
+            "name": "Alba",
+            "shortname": "Alba",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Alba.php",
+            "line": 122,
+            "description": "Třída pro práci s modely typu Album"
+        },
+        "Clen": {
+            "name": "Clen",
+            "shortname": "Clen",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Clenove.php",
+            "line": 6,
+            "description": "Třída pro tvorbu modelů typu Clen"
+        },
+        "Clenove": {
+            "name": "Clenove",
+            "shortname": "Clenove",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Clenove.php",
+            "line": 99,
+            "description": "Třída pro práci s modely typu Clen"
+        },
+        "ClenJoinNastroj": {
+            "name": "ClenJoinNastroj",
+            "shortname": "ClenJoinNastroj",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\ClenoveJoinNastroje.php",
+            "line": 4,
+            "description": "Třída pro tvorbu modelů typu ClenJoinNastroj"
+        },
+        "ClenoveJoinSkupiny": {
+            "name": "ClenoveJoinSkupiny",
+            "shortname": "ClenoveJoinSkupiny",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\ClenoveJoinNastroje.php",
+            "line": 24,
+            "description": "Třída pro práci s modely typu ClenJoinNastroj"
+        },
+        "Nastroj": {
+            "name": "Nastroj",
+            "shortname": "Nastroj",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Nastroje.php",
+            "line": 3,
+            "description": "Třída pro tvorbu modelů typu Nastroj"
+        },
+        "Nastroje": {
+            "name": "Nastroje",
+            "shortname": "Nastroje",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Nastroje.php",
+            "line": 27,
+            "description": "Třída pro práci s modely typu Nastroj"
+        },
+        "Skladba": {
+            "name": "Skladba",
+            "shortname": "Skladba",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Skladby.php",
+            "line": 3,
+            "description": "Třída pro tvorbu modelů typu Skladba"
+        },
+        "Skladby": {
+            "name": "Skladby",
+            "shortname": "Skladby",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Skladby.php",
+            "line": 63,
+            "description": "Třída pro práci s modely typu Skladba"
+        },
+        "Skupina": {
+            "name": "Skupina",
+            "shortname": "Skupina",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Skupiny.php",
+            "line": 7,
+            "description": "Třída pro tvorbu modelů typu Skupina"
+        },
+        "Skupiny": {
+            "name": "Skupiny",
+            "shortname": "Skupiny",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Skupiny.php",
+            "line": 96,
+            "description": "Třída pro práci s modely typu Skupina"
+        },
+        "SkupinaJoinClen": {
+            "name": "SkupinaJoinClen",
+            "shortname": "SkupinaJoinClen",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 3,
+            "description": "Třída pro tvorbu modelů typu SkupinaJoinClen"
+        },
+        "SkupinyJoinClenove": {
+            "name": "SkupinyJoinClenove",
+            "shortname": "SkupinyJoinClenove",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 38,
+            "description": "Třída pro práci s modely typu SkupinaJoinClen"
+        },
+        "Uzivatel": {
+            "name": "Uzivatel",
+            "shortname": "Uzivatel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Uzivatele.php",
+            "line": 5,
+            "description": "Třída pro tvorbu modelů typu Uzivatel"
+        },
+        "Uzivatele": {
+            "name": "Uzivatele",
+            "shortname": "Uzivatele",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Uzivatele.php",
+            "line": 107,
+            "description": "Třída pro práci s modely typu Uzivatel"
+        },
+        "Vydavatel": {
+            "name": "Vydavatel",
+            "shortname": "Vydavatel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Vydavatele.php",
+            "line": 3,
+            "description": "Třída pro tvorbu modelů typu Vydavatel"
+        },
+        "Vydavatele": {
+            "name": "Vydavatele",
+            "shortname": "Vydavatele",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Vydavatele.php",
+            "line": 35,
+            "description": "Třída pro práci s modely typu Vydavatel"
+        },
+        "Zadost": {
+            "name": "Zadost",
+            "shortname": "Zadost",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Zadosti.php",
+            "line": 3,
+            "description": "Třída pro tvorbu modelů typu Zadost"
+        },
+        "Zadosti": {
+            "name": "Zadosti",
+            "shortname": "Zadosti",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "app\\models\\Zadosti.php",
+            "line": 38,
+            "description": "Třída pro práci s modely typu Zadost"
+        },
+        "DefaultParams": {
+            "name": "DefaultParams",
+            "shortname": "DefaultParams",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\DefaultParams.php",
+            "line": 3,
+            "description": "Třídá, ze které dědí třídy jejichž instance se předávají do Mustache templatů.\nVšechny metody a vlastnosti jsou pak v templatech přístupné."
+        },
+        "LapiApplication": {
+            "name": "LapiApplication",
+            "shortname": "LapiApplication",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 3,
+            "description": "Hlavní třída apliakce."
+        },
+        "LapiCollection": {
+            "name": "LapiCollection",
+            "shortname": "LapiCollection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 3,
+            "description": "Třída reprezentující kolekci stejného typu řádků z databáze"
+        },
+        "LapiDatabase": {
+            "name": "LapiDatabase",
+            "shortname": "LapiDatabase",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 3,
+            "description": "Třídá pro práci s databází"
+        },
+        "LapiModel": {
+            "name": "LapiModel",
+            "shortname": "LapiModel",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 3,
+            "description": "Třída reprezentující jeden řádek z databáze.\nJednotlivé buňky se získavají/nastavují přes metody get a set. ($model->set('name', 'Jan Novak'))\nAby se změny uložili do databáze je třeba zavolat metodu save ($model->save())\nBuňkám v modelu budeme říkat _atributy_"
+        },
+        "LapiURL": {
+            "name": "LapiURL",
+            "shortname": "LapiURL",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 3,
+            "description": "URL Parser"
+        }
+    },
+    "classitems": [
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 13,
+            "itemtype": "attribute",
+            "name": "id_Alba",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 18,
+            "itemtype": "attribute",
+            "name": "nazev",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 23,
+            "itemtype": "attribute",
+            "name": "obal",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 28,
+            "itemtype": "attribute",
+            "name": "datum_vydani",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 33,
+            "itemtype": "attribute",
+            "name": "delka_alba",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 38,
+            "itemtype": "attribute",
+            "name": "id_Skupiny",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 43,
+            "itemtype": "attribute",
+            "name": "id_Vydavatel",
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 51,
+            "description": "Vrati model vydavatele daneho alba",
+            "itemtype": "method",
+            "name": "vydavatelAlba",
+            "return": {
+                "description": "Vydavatel"
+            },
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 72,
+            "description": "Zmeni ID skupiny",
+            "itemtype": "method",
+            "name": "priraditDoJineSkupiny",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "nebo model skupiny",
+                    "type": "Skupina|Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Alba.php",
+            "line": 90,
+            "description": "Zmeni ID vydavatele",
+            "itemtype": "method",
+            "name": "zadatJinehoVydavatele",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "nebo model vydavatele",
+                    "type": "Vydavatel|Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Album"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 13,
+            "itemtype": "attribute",
+            "name": "id_Clenove",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 18,
+            "itemtype": "attribute",
+            "name": "jmeno",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 23,
+            "itemtype": "attribute",
+            "name": "prijmeni",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 28,
+            "itemtype": "attribute",
+            "name": "datum_narozeni",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 33,
+            "itemtype": "attribute",
+            "name": "datum_umrti",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 38,
+            "itemtype": "attribute",
+            "name": "misto_narozeni",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 43,
+            "itemtype": "attribute",
+            "name": "historie",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 48,
+            "itemtype": "attribute",
+            "name": "www",
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\Clenove.php",
+            "line": 56,
+            "description": "Prida nastroj k clenovi",
+            "itemtype": "method",
+            "name": "pridatNastroj",
+            "params": [
+                {
+                    "name": "ID,",
+                    "description": "nazev nebo model nastroje",
+                    "type": "Nastroj|String|Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Clen"
+        },
+        {
+            "file": "app\\models\\ClenoveJoinNastroje.php",
+            "line": 11,
+            "itemtype": "attribute",
+            "name": "id_Nastroje",
+            "class": "ClenJoinNastroj"
+        },
+        {
+            "file": "app\\models\\ClenoveJoinNastroje.php",
+            "line": 16,
+            "itemtype": "attribute",
+            "name": "id_Clenove",
+            "class": "ClenJoinNastroj"
+        },
+        {
+            "file": "app\\models\\Nastroje.php",
+            "line": 10,
+            "itemtype": "attribute",
+            "name": "id_Nastroje",
+            "class": "Nastroj"
+        },
+        {
+            "file": "app\\models\\Nastroje.php",
+            "line": 16,
+            "itemtype": "attribute",
+            "name": "id_Nazev",
+            "class": "Nastroj"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 10,
+            "itemtype": "attribute",
+            "name": "id_Skladby",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 15,
+            "itemtype": "attribute",
+            "name": "nazev",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 20,
+            "itemtype": "attribute",
+            "name": "text",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 25,
+            "itemtype": "attribute",
+            "name": "youtube",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 30,
+            "itemtype": "attribute",
+            "name": "delka",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 35,
+            "itemtype": "attribute",
+            "name": "id_Alba",
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skladby.php",
+            "line": 43,
+            "description": "Nastavi id alba",
+            "itemtype": "method",
+            "name": "pridatSkladbuKAlbu",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "nebo model alba",
+                    "type": "Album|Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Skladba"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 14,
+            "itemtype": "attribute",
+            "name": "id_Skupiny",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 19,
+            "itemtype": "attribute",
+            "name": "nazev",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 24,
+            "itemtype": "attribute",
+            "name": "rok_zalozeni",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 29,
+            "itemtype": "attribute",
+            "name": "historie",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 34,
+            "itemtype": "attribute",
+            "name": "www",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 39,
+            "itemtype": "attribute",
+            "name": "foto",
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 47,
+            "description": "Prida clena skupine",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "Clena",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 66,
+            "description": "Prida album skupine",
+            "itemtype": "method",
+            "name": "pridatAlbum",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "alba",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 76,
+            "description": "Odebere album skupine",
+            "itemtype": "method",
+            "name": "odebratAlbum",
+            "params": [
+                {
+                    "name": "ID",
+                    "description": "alba",
+                    "type": "Int"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\Skupiny.php",
+            "line": 86,
+            "description": "Vrati kolekci alb, ktera patri skupine",
+            "itemtype": "method",
+            "name": "seznamAlb",
+            "return": {
+                "description": "Alba"
+            },
+            "class": "Skupina"
+        },
+        {
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 10,
+            "itemtype": "attribute",
+            "name": "id_Skupiny",
+            "class": "SkupinaJoinClen"
+        },
+        {
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 15,
+            "itemtype": "attribute",
+            "name": "id_Clenove",
+            "class": "SkupinaJoinClen"
+        },
+        {
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 20,
+            "itemtype": "attribute",
+            "name": "aktivni",
+            "class": "SkupinaJoinClen"
+        },
+        {
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 25,
+            "itemtype": "attribute",
+            "name": "rok_zacatku",
+            "class": "SkupinaJoinClen"
+        },
+        {
+            "file": "app\\models\\SkupinyJoinClenove.php",
+            "line": 30,
+            "itemtype": "attribute",
+            "name": "rok_konce",
+            "class": "SkupinaJoinClen"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 12,
+            "itemtype": "attribute",
+            "name": "id_Uzivatele",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 17,
+            "itemtype": "attribute",
+            "name": "nickname",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 22,
+            "itemtype": "attribute",
+            "name": "jmeno",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 27,
+            "itemtype": "attribute",
+            "name": "prijmeni",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 32,
+            "itemtype": "attribute",
+            "name": "icq",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 37,
+            "itemtype": "attribute",
+            "name": "heslo",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 42,
+            "description": "commented to get current timestamp",
+            "itemtype": "attribute",
+            "name": "datum_registrace",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 48,
+            "itemtype": "attribute",
+            "name": "mail",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 53,
+            "description": "1 = basic user, 2 = mod., 3 = admin",
+            "itemtype": "attribute",
+            "name": "id_Role",
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 62,
+            "description": "Zmeni heslo na nove (je-li vse v poradku)",
+            "itemtype": "method",
+            "name": "zmenitHeslo",
+            "params": [
+                {
+                    "name": "Stare",
+                    "description": "heslo",
+                    "type": "String"
+                },
+                {
+                    "name": "Nove",
+                    "description": "heslo",
+                    "type": "String"
+                },
+                {
+                    "name": "Potvrzeni",
+                    "description": "noveho hesla",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 82,
+            "description": "Prida zadost o mod. prava. Administrator ji musi jeste potvrdit.",
+            "itemtype": "method",
+            "name": "zazadatModPrava",
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Uzivatele.php",
+            "line": 96,
+            "description": "Nastavi roli uzivatele zpet na bezneho uzivatele",
+            "itemtype": "method",
+            "name": "vratitRoliUzivatele",
+            "return": {
+                "description": "Bool"
+            },
+            "class": "Uzivatel"
+        },
+        {
+            "file": "app\\models\\Vydavatele.php",
+            "line": 10,
+            "itemtype": "attribute",
+            "name": "id_Vydavatel",
+            "class": "Vydavatel"
+        },
+        {
+            "file": "app\\models\\Vydavatele.php",
+            "line": 15,
+            "itemtype": "attribute",
+            "name": "nazev",
+            "class": "Vydavatel"
+        },
+        {
+            "file": "app\\models\\Vydavatele.php",
+            "line": 20,
+            "itemtype": "attribute",
+            "name": "popis",
+            "class": "Vydavatel"
+        },
+        {
+            "file": "app\\models\\Vydavatele.php",
+            "line": 25,
+            "itemtype": "attribute",
+            "name": "datum_zalozeni",
+            "class": "Vydavatel"
+        },
+        {
+            "file": "app\\models\\Zadosti.php",
+            "line": 10,
+            "itemtype": "attribute",
+            "name": "id_Zadosti",
+            "class": "Zadost"
+        },
+        {
+            "file": "app\\models\\Zadosti.php",
+            "line": 15,
+            "itemtype": "attribute",
+            "name": "datum",
+            "class": "Zadost"
+        },
+        {
+            "file": "app\\models\\Zadosti.php",
+            "line": 20,
+            "itemtype": "attribute",
+            "name": "zpracovano",
+            "class": "Zadost"
+        },
+        {
+            "file": "app\\models\\Zadosti.php",
+            "line": 25,
+            "itemtype": "attribute",
+            "name": "schvaleno",
+            "class": "Zadost"
+        },
+        {
+            "file": "app\\models\\Zadosti.php",
+            "line": 30,
+            "itemtype": "attribute",
+            "name": "id_Uzivatele",
+            "class": "Zadost"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 9,
+            "description": "Reference na instanci LapiDatabase pokud používáme databázi",
+            "type": "LapiDatabase",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 15,
+            "description": "Cesta k sekcím",
+            "type": "String",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 21,
+            "description": "Cesta k modelům",
+            "type": "String",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 27,
+            "description": "Cesta k templatům",
+            "type": "String",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 33,
+            "description": "Cesta ke statickým objektům (css, js, obrázky)",
+            "type": "String",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 39,
+            "description": "Reference na model přihlášeného uživatele.",
+            "type": "LapiModel",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 45,
+            "description": "Konstruktor, vytvoří novou instanci LapiDatabase",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 52,
+            "description": "Vrátí base_url aplikace",
+            "itemtype": "method",
+            "name": "getRealRoot",
+            "return": {
+                "description": "String"
+            },
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 64,
+            "description": "Přesměruje klienta do jiné sekce",
+            "itemtype": "method",
+            "name": "redirect",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiApplication.php",
+            "line": 73,
+            "description": "Zkratka 'db' k vlastnosti database",
+            "class": "LapiApplication"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 9,
+            "description": "Název třídy modelu",
+            "itemtype": "property",
+            "name": "model",
+            "type": "String",
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 16,
+            "description": "Pole všech modelů v kolekci",
+            "itemtype": "property",
+            "name": "models",
+            "type": "Array",
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 23,
+            "description": "Název tabulky ke které kolekce patří",
+            "itemtype": "property",
+            "name": "db_table",
+            "type": "String",
+            "example": [
+                " 'users'"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 31,
+            "description": "Konstruktor, zavolá metodu initialize (pokud existuje)",
+            "params": [
+                {
+                    "name": "$attr",
+                    "description": "Pokud chcete rovnou stáhnout data z databáze při vytvoření modelu, tak zadejte pole parametrů",
+                    "type": "Array"
+                }
+            ],
+            "example": [
+                " new LapiCollection( array('where' => array('name' => 'Jan Novak'), 'limit' => 1) );"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 45,
+            "description": "Přidá model do kolekce",
+            "itemtype": "method",
+            "name": "add",
+            "params": [
+                {
+                    "name": "$obj",
+                    "description": "Model či pole modelů, které se mají přidat do kolekce",
+                    "type": "LapiModel|Array"
+                }
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 58,
+            "description": "Odebere model z kolekce",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "$obj",
+                    "description": "Model či pole modelů, které se mají z kolekce odebrat",
+                    "type": "LapiModel|Array"
+                }
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 79,
+            "description": "Odebere všechny předchozí modely z kolekce a přidá nové",
+            "itemtype": "method",
+            "name": "reset",
+            "params": [
+                {
+                    "name": "$arr",
+                    "description": "Pole nových modelů",
+                    "type": "Array"
+                }
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 91,
+            "description": "Vrátí model z kolekce podle jeho id nebo cid",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "$id",
+                    "description": "id nebo cid modelu",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "LapiModel"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 106,
+            "description": "Vrátí model na daném indexu",
+            "itemtype": "method",
+            "name": "at",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Index modelu",
+                    "type": "Integer"
+                }
+            ],
+            "return": {
+                "description": "LapiModel"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 117,
+            "description": "Vrátí počet modelů v kolekci",
+            "itemtype": "method",
+            "name": "length",
+            "return": {
+                "description": "Integer"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 126,
+            "description": "Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse\na tak data změnit dřív než se uloží do modelů.",
+            "itemtype": "method",
+            "name": "parse",
+            "params": [
+                {
+                    "name": "$arr",
+                    "description": "Asoc. pole obsahující data z databáze",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Array"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 137,
+            "description": "Získá modely z databáze",
+            "itemtype": "method",
+            "name": "fetch",
+            "params": [
+                {
+                    "name": "$attr",
+                    "description": "Parametry pro filtrovaní",
+                    "type": "Array"
+                }
+            ],
+            "example": [
+                " $collection->fetch( array('where' => 'age < 20') );"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 173,
+            "description": "Vrátí počet všech řádků v databázi po zavolání fetch s limitem",
+            "itemtype": "method",
+            "name": "allRowsCount",
+            "return": {
+                "description": "Integer"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 196,
+            "description": "Vrátí pole hodnot daného atributu",
+            "itemtype": "method",
+            "name": "pluck",
+            "params": [
+                {
+                    "name": "$str",
+                    "description": "Název atributu",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $collection->pluck('age') => array(27, 29, 30, 14, 18)"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 211,
+            "description": "Vrátí pole modelů, které odpovídají zadaným parametrům",
+            "itemtype": "method",
+            "name": "where",
+            "params": [
+                {
+                    "name": "$attrs",
+                    "description": "Parametry.",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $collection->where(array('name' => 'Jan Novak')) => array([LapiModel Object])"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 231,
+            "description": "Vrátí první model, které odpovídá zadaným parametrům",
+            "itemtype": "method",
+            "name": "findWhere",
+            "params": [
+                {
+                    "name": "$attrs",
+                    "description": "Parametry.",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "LapiModel"
+            },
+            "example": [
+                " $collection->findWhere(array('name' => 'Jan Novak')) => [LapiModel Object]"
+            ],
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 250,
+            "description": "Vytvoří nový model, přidá ho do kolekce a uloží do databáze",
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "$attrs",
+                    "description": "Asoc. pole atributů",
+                    "type": "Array"
+                },
+                {
+                    "name": "$options",
+                    "description": "Pole nastavení. Zatím jen položka 'wait', která pokud je true a model se nepodaří uložit do db, tak se nepřidá ani do kolekce",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "LapiModel"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiCollection.php",
+            "line": 276,
+            "description": "Vrátí JSON řetězec kolekce",
+            "itemtype": "method",
+            "name": "toJSON",
+            "return": {
+                "description": "String"
+            },
+            "class": "LapiCollection"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 9,
+            "description": "Přihlašovací jméno k databázi",
+            "itemtype": "property",
+            "name": "username",
+            "type": "String",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 16,
+            "description": "Přihlašovací heslo k databázi",
+            "itemtype": "property",
+            "name": "password",
+            "type": "String",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 23,
+            "description": "database host",
+            "itemtype": "property",
+            "name": "host",
+            "type": "String",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 30,
+            "description": "Název databáze",
+            "itemtype": "property",
+            "name": "database",
+            "type": "String",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 37,
+            "description": "Reference na MySQLi objekt",
+            "itemtype": "property",
+            "name": "mysqli",
+            "type": "MySQLI",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 44,
+            "description": "Info. jestli jsme připojeni k databázi",
+            "itemtype": "property",
+            "name": "isConnected",
+            "type": "String",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 51,
+            "description": "Konstruktor",
+            "params": [
+                {
+                    "name": "$u",
+                    "description": "Uživ. jméno k db",
+                    "type": "String"
+                },
+                {
+                    "name": "$p",
+                    "description": "Uživ. heslo k db",
+                    "type": "String"
+                },
+                {
+                    "name": "$h",
+                    "description": "Db host",
+                    "type": "String"
+                },
+                {
+                    "name": "$d",
+                    "description": "Název databáze",
+                    "type": "String"
+                }
+            ],
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 65,
+            "description": "Obecný dotaz na databázi",
+            "itemtype": "method",
+            "name": "query",
+            "params": [
+                {
+                    "name": "$q",
+                    "description": "Dotaz",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Object (MySQLi result)"
+            },
+            "example": [
+                " $db->query('SELECT * FROM tabulka')"
+            ],
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 79,
+            "description": "SELECT dotaz na databázi",
+            "itemtype": "method",
+            "name": "select",
+            "params": [
+                {
+                    "name": "$table",
+                    "description": "Název tabulky",
+                    "type": "String"
+                },
+                {
+                    "name": "$attr",
+                    "description": "Parametry",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Object (MySQLi result)"
+            },
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 97,
+            "description": "DELETE dotaz na databázi",
+            "itemtype": "method",
+            "name": "delete",
+            "params": [
+                {
+                    "name": "$table",
+                    "description": "Název tabulky",
+                    "type": "String"
+                },
+                {
+                    "name": "$attr",
+                    "description": "Parametry",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Object (MySQLi result)"
+            },
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 112,
+            "description": "INSERT dotaz na databázi",
+            "itemtype": "method",
+            "name": "insert",
+            "params": [
+                {
+                    "name": "$table",
+                    "description": "Název tabulky",
+                    "type": "String"
+                },
+                {
+                    "name": "$attr",
+                    "description": "Parametry",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Object (MySQLi result)"
+            },
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 135,
+            "description": "UPDATE dotaz na databázi",
+            "itemtype": "method",
+            "name": "update",
+            "params": [
+                {
+                    "name": "$table",
+                    "description": "Název tabulky",
+                    "type": "String"
+                },
+                {
+                    "name": "$attr",
+                    "description": "Parametry",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Object (MySQLi result)"
+            },
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 158,
+            "description": "Debugovací funkce která vypíše info o mysqli objektu",
+            "itemtype": "method",
+            "name": "dump",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 166,
+            "description": "Escapování řetězce",
+            "itemtype": "method",
+            "name": "escape",
+            "params": [
+                {
+                    "name": "$str",
+                    "description": "Řetězec který má být escpaován",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "String"
+            },
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 176,
+            "description": "K db. se nepřipojíme hned při vytovření instance LapiDatabase, ale až při prvním dotazu.\nTato funkce se stará o skutečné připojení k db",
+            "itemtype": "method",
+            "name": "realConnect",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiDatabase.php",
+            "line": 186,
+            "description": "SELECT, UPDATE, DELETE dotazy umožňují nastavit parametr WHERE\nTen buď může být SQL řetězec nebo asociativní pole\nPokud je to ascc. pole, tak např array('where' => array('name' => 'Jan Novak', 'age' => 27))\nse převede na WHERE `name`='Jan Novak' AND `age`='27'\nFunkce se navíc postará o to, aby všechny vstupy byly escapováný (v případě asoc. pole)",
+            "itemtype": "method",
+            "name": "parseWhere",
+            "class": "LapiDatabase"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 11,
+            "description": "Asociativní pole jednotlivých atributů. Všechny změny by se měli dělat pomocí metody set.",
+            "itemtype": "property",
+            "name": "attributes",
+            "type": "Array",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 18,
+            "description": "Název sloupce, který slouží jako PRIMARY KEY",
+            "itemtype": "property",
+            "name": "idAttribute",
+            "type": "String",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 25,
+            "description": "Výchozí hodnoty atributů, která se nastaví při vytvoření nového modelu.",
+            "itemtype": "property",
+            "name": "defaults",
+            "type": "Array",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 32,
+            "description": "Speciální ID které se nastaví ihned při vytvoření modelu bez toho aby byl model uložený do databáze.",
+            "itemtype": "property",
+            "name": "cid",
+            "type": "String",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 39,
+            "description": "Tuto proměnnou nastavuje metoda validate na chybovou hlášku, pokud není model validní",
+            "itemtype": "property",
+            "name": "validationError",
+            "type": "String",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 46,
+            "description": "Název tabulky ke které model patří",
+            "itemtype": "property",
+            "name": "db_table",
+            "type": "String",
+            "example": [
+                " 'users'"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 54,
+            "description": "Speciální interní proměnná, která se používá k vygenerování cid",
+            "itemtype": "property",
+            "name": "_idCounter",
+            "static": 1,
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 61,
+            "description": "Konstruktor",
+            "params": [
+                {
+                    "name": "$data",
+                    "description": "Asociativní pole dat, která se mají modelu nastavit",
+                    "type": "Array"
+                }
+            ],
+            "example": [
+                " new LapiModel(array('name' => 'Jan Novak', 'age' => 13));"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 81,
+            "description": "Statická metoda, která vygeneruje nové cid",
+            "itemtype": "method",
+            "name": "uniqueId",
+            "static": 1,
+            "params": [
+                {
+                    "name": "$prefix",
+                    "description": "Normálně se generují hodnoty od 1 do n. Pefix umožňuje před číslo vložit nějaký řětezec (m1-mn)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "String"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 93,
+            "description": "Pokud modelu chybí nějaký atribut, který je definovaný v defaults, tak se použije hodnota nastavená v defaults.",
+            "itemtype": "method",
+            "name": "fillDefaults",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 105,
+            "description": "Získá hodnotu atributu",
+            "itemtype": "method",
+            "name": "get",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Název atributu (index asoc. pole atributů)",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                " $model->get('name') => 'Jan Novak'"
+            ],
+            "return": {
+                "description": "Any"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 116,
+            "description": "Získá hodnotu atributu a převede všechny html tagy na řetězce",
+            "itemtype": "method",
+            "name": "escape",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Název atributu",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                " $model->escape('popis') => '&lt;b&gt;tucny text&lt;/b&gt;'"
+            ],
+            "return": {
+                "description": "String"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 127,
+            "description": "Nastaví hodnotu atributu",
+            "itemtype": "method",
+            "name": "set",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Název atributu",
+                    "type": "String"
+                },
+                {
+                    "name": "$value",
+                    "description": "Hodnota atributu",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                " $model->set('name', 'Jan Novak')"
+            ],
+            "return": {
+                "description": "Any"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 139,
+            "description": "Odstraní atribut",
+            "itemtype": "method",
+            "name": "remove",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Název atributu",
+                    "type": "String"
+                }
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 148,
+            "description": "Vrátí true nebo false podle toho zda model má daný atribut",
+            "itemtype": "method",
+            "name": "has",
+            "params": [
+                {
+                    "name": "$index",
+                    "description": "Název atributu",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Bool"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 158,
+            "description": "Odstraní všechny atributy",
+            "itemtype": "method",
+            "name": "clear",
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 166,
+            "description": "Vrátí hodnotu atributu, který reprezentuje buňku s PRIMARY KEY",
+            "itemtype": "method",
+            "name": "getId",
+            "return": {
+                "description": "Any"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 175,
+            "description": "Nastaví hodnotu atributu, který reprezentuje buňku s PRIMARY KEY",
+            "itemtype": "method",
+            "name": "setId",
+            "params": [
+                {
+                    "name": "$value",
+                    "description": "Hodnota",
+                    "type": "Any"
+                }
+            ],
+            "return": {
+                "description": "Any"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 185,
+            "description": "Uloží model do databáze.\nPokud id modelu v databázi neexistuje vytvoří se nový řádek.\nPokud id modelu v databázi už existuje, tak se aktualizuje řádek s daným id.",
+            "itemtype": "method",
+            "name": "save",
+            "return": {
+                "description": "Bool"
+            },
+            "throws": [
+                ""
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 224,
+            "description": "Uloží do modelu data z databáze",
+            "itemtype": "method",
+            "name": "fetch",
+            "return": {
+                "description": "Bool"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 258,
+            "description": "Odstraní model z databáze",
+            "itemtype": "method",
+            "name": "destroy",
+            "return": {
+                "description": "Bool"
+            },
+            "throws": [
+                ""
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 289,
+            "description": "Funkce, kterou můžou přepsat třídy dědící z této.\nFunkce buď vrátí nulu, jako že je vše v přoádku. Nebo řetězec obsahující chybovou zprávu.\nTuto funkci využívá metoda isValid",
+            "itemtype": "method",
+            "name": "validate",
+            "return": {
+                "description": "String|Integer"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 300,
+            "description": "Zkontroluje zda je model validní.\nPokud není přepsaná metoda validate, tak je model validní vždy",
+            "itemtype": "method",
+            "name": "isValid",
+            "return": {
+                "description": "Bool"
+            },
+            "example": [
+                " if ( !$model->isValid() ) echo $model->validationError"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 312,
+            "description": "Běžně se uloží hodnoty z databáze rovnou do atributů, je ale možné přepsat metodu parse\na tak data změnit dřív než se uloží do modelu.",
+            "params": [
+                {
+                    "name": "$store",
+                    "description": "Asoc. pole nebo objekt obsahující data z databáze",
+                    "type": "Array|Object"
+                }
+            ],
+            "itemtype": "method",
+            "name": "parse",
+            "return": {
+                "description": "Array|Object"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 326,
+            "description": "Zjistí, jestli je model už v databázi",
+            "itemtype": "method",
+            "name": "isNew",
+            "return": {
+                "description": "Bool"
+            },
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 349,
+            "description": "Vrátí pole pouze specifikovaných atributů",
+            "itemtype": "method",
+            "name": "pick",
+            "params": [
+                {
+                    "name": "$arr",
+                    "description": "Pole názvů atributů, která chceme",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $model->pick(array('name', 'age')) => array('name' => 'Jan Novak', 'age' => 27)"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 368,
+            "description": "Vrátí pole všech atribůtů, kromě těch které jsou specifikovány",
+            "itemtype": "method",
+            "name": "omit",
+            "params": [
+                {
+                    "name": "$arr",
+                    "description": "Pole názvů atributů, která nechceme",
+                    "type": "Array"
+                }
+            ],
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $model->omit(array('name')) => array('age' => 27, 'mail' => 'jan.novak@mail.cz')"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 388,
+            "description": "Vrátí pole názvů atributů",
+            "itemtype": "method",
+            "name": "keys",
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $model->keys() => array('name', 'age', 'mail')"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 402,
+            "description": "Vráti pole hodnot atributů",
+            "itemtype": "method",
+            "name": "values",
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $model->keys() => array('Jan Novak', '27', 'jan.novak@mail.cz')"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiModel.php",
+            "line": 416,
+            "description": "Vrátí vícerozměrné pole atributů uspořadaných do dvojic název/hodnota",
+            "itemtype": "method",
+            "name": "pairs",
+            "return": {
+                "description": "Array"
+            },
+            "example": [
+                " $model->pairs() => array(array('name', 'Jan Novak'), array('age', 27), array('mail', 'jan.novak@mail.cz'))"
+            ],
+            "class": "LapiModel"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 8,
+            "description": "Sekce stránky",
+            "itemtype": "property",
+            "name": "section",
+            "type": "String",
+            "example": [
+                " ...cz/admin/users/15 => sekce = admin"
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 16,
+            "description": "Zbytek url (mimo query string) rozdělený podle /",
+            "itemtype": "property",
+            "name": "params",
+            "type": "Array",
+            "example": [
+                " ...cz/admin/users/15 => params = array('users', '15')"
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 24,
+            "description": "Query string uložený do asociativního pole",
+            "itemtype": "property",
+            "name": "qs",
+            "type": "Array",
+            "example": [
+                " ...cz/admin?subsection=users&count=15 => qs = array('subsection' => 'users', 'count' => 15)"
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 32,
+            "description": "Hash",
+            "itemtype": "property",
+            "name": "hash",
+            "type": "String",
+            "example": [
+                " ...cz/admin#xyz => hash = xyz"
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 40,
+            "description": "Konstruktor",
+            "params": [
+                {
+                    "name": "$str",
+                    "description": "Část url za doménami (si1.martinkadlec.eu !!/admin/users?xyz=abc#123!!)",
+                    "type": "String"
+                }
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\CoreClasses\\LapiURL.php",
+            "line": 68,
+            "description": "Statická funkce, která parsuje query string",
+            "itemtype": "method",
+            "name": "parseQueryString",
+            "static": 1,
+            "params": [
+                {
+                    "name": "$str",
+                    "description": "query string",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                " LapiURL::parseQueryString('abc=1&xyz=2') => 'array('abc' => 1, 'xyz' => 2)"
+            ],
+            "class": "LapiURL"
+        },
+        {
+            "file": "libs\\Lapi\\helpers.php",
+            "line": 4,
+            "description": "Odstraní z řetězce vše až na čísla",
+            "class": ""
+        },
+        {
+            "file": "libs\\Lapi\\helpers.php",
+            "line": 11,
+            "description": "Odstraní z řetězce vše až na čísla, psímena a znaky -_:",
+            "class": ""
+        },
+        {
+            "file": "libs\\Lapi\\helpers.php",
+            "line": 19,
+            "description": "Pomocí Mustache templatů vypíše HTML do stránky",
+            "class": ""
+        },
+        {
+            "file": "libs\\Lapi\\init.php",
+            "line": 3,
+            "description": "Load stuff",
+            "class": ""
+        },
+        {
+            "file": "libs\\Lapi\\init.php",
+            "line": 10,
+            "description": "Nastavení autoloaderu, aby pokud parser narazí na nový název třídy tak se podíval do složky CoreClasses",
+            "class": ""
+        },
+        {
+            "file": "libs\\Lapi\\init.php",
+            "line": 19,
+            "description": "Vytvoření nové globální instance LapiApplication",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nPrida clena skupine",
+            "line": " app\\models\\Skupiny.php:47"
+        },
+        {
+            "message": "Missing item type\nReference na instanci LapiDatabase pokud používáme databázi",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:9"
+        },
+        {
+            "message": "Missing item type\nCesta k sekcím",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:15"
+        },
+        {
+            "message": "Missing item type\nCesta k modelům",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:21"
+        },
+        {
+            "message": "Missing item type\nCesta k templatům",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:27"
+        },
+        {
+            "message": "Missing item type\nCesta ke statickým objektům (css, js, obrázky)",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:33"
+        },
+        {
+            "message": "Missing item type\nReference na model přihlášeného uživatele.",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:39"
+        },
+        {
+            "message": "Missing item type\nKonstruktor, vytvoří novou instanci LapiDatabase",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:45"
+        },
+        {
+            "message": "Missing item type\nZkratka 'db' k vlastnosti database",
+            "line": " libs\\Lapi\\CoreClasses\\LapiApplication.php:73"
+        },
+        {
+            "message": "Missing item type\nKonstruktor, zavolá metodu initialize (pokud existuje)",
+            "line": " libs\\Lapi\\CoreClasses\\LapiCollection.php:31"
+        },
+        {
+            "message": "Missing item type\nKonstruktor",
+            "line": " libs\\Lapi\\CoreClasses\\LapiDatabase.php:51"
+        },
+        {
+            "message": "Missing item type\nKonstruktor",
+            "line": " libs\\Lapi\\CoreClasses\\LapiModel.php:61"
+        },
+        {
+            "message": "Missing item type\nKonstruktor",
+            "line": " libs\\Lapi\\CoreClasses\\LapiURL.php:40"
+        },
+        {
+            "message": "Missing item type\nOdstraní z řetězce vše až na čísla",
+            "line": " libs\\Lapi\\helpers.php:4"
+        },
+        {
+            "message": "Missing item type\nOdstraní z řetězce vše až na čísla, psímena a znaky -_:",
+            "line": " libs\\Lapi\\helpers.php:11"
+        },
+        {
+            "message": "Missing item type\nPomocí Mustache templatů vypíše HTML do stránky",
+            "line": " libs\\Lapi\\helpers.php:19"
+        },
+        {
+            "message": "Missing item type\nLoad stuff",
+            "line": " libs\\Lapi\\init.php:3"
+        },
+        {
+            "message": "Missing item type\nNastavení autoloaderu, aby pokud parser narazí na nový název třídy tak se podíval do složky CoreClasses",
+            "line": " libs\\Lapi\\init.php:10"
+        },
+        {
+            "message": "Missing item type\nVytvoření nové globální instance LapiApplication",
+            "line": " libs\\Lapi\\init.php:19"
+        }
+    ]
+}
